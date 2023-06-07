@@ -13,7 +13,7 @@ void initApp(EnvType env) async {
   WidgetsFlutterBinding.ensureInitialized();
   Env.init(env);
 
-  configureDependencies();
+  await configureDependencies();
 
   // HttpOverrides.global = MyHttpOverrides();
 
