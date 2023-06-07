@@ -43,20 +43,33 @@ android {
     }
 
     defaultConfig {
-        // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
-        applicationId "com.coding.challenge.flutter_coding_challenge"
-        // You can update the following values to match your application needs.
-        // For more information, see: https://docs.flutter.dev/deployment/android#reviewing-the-build-configuration.
+        applicationId "com.coding.challenge"
         minSdkVersion flutter.minSdkVersion
         targetSdkVersion flutter.targetSdkVersion
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
     }
 
+    flavorDimensions "challenge"
+
+    productFlavors {
+        development {
+            dimension "challenge"
+            applicationIdSuffix ".dev"
+            resValue "string", "app_name", "Flutter Coding Challenge Dev"
+            versionNameSuffix ".dev"
+        }
+        production {
+            dimension "counterapp"
+            applicationIdSuffix ".prod"
+            resValue "string", "app_name", "Flutter Coding Challenge Prod"
+            versionNameSuffix ".prod"
+        }
+
+    }
+
     buildTypes {
         release {
-            // TODO: Add your own signing config for the release build.
-            // Signing with the debug keys for now, so `flutter run --release` works.
             signingConfig signingConfigs.debug
         }
     }
