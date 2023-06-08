@@ -1,8 +1,8 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_coding_challenge/DI/di_locator.dart';
 
 import '../module/list/bloc/game_list_bloc.dart';
-import '../module/list/state/game_list_state.dart';
 
 var providerList = [
-  BlocProvider<GameListBloc>(create: (_) => GameListBloc(GameListStateInit())),
+  BlocProvider<GameListBloc>(create: (_) => GameListBloc(locator())),
 ];

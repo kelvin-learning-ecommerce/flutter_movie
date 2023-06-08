@@ -7,7 +7,30 @@ abstract class GameListEvent extends Equatable {
   List<Object?> get props => [];
 }
 
-class GameListFetch extends GameListEvent {
+class GameListLoadingEvent extends GameListEvent {
 
-  const GameListFetch();
+  const GameListLoadingEvent();
+}
+
+class GameListChangeLangEvent extends GameListEvent {
+
+  final String lang;
+
+  const GameListChangeLangEvent({required this.lang});
+}
+
+class GameListFetchEvent extends GameListEvent {
+
+  const GameListFetchEvent();
+}
+
+enum ListLayout{
+  listview, gridview
+}
+
+class GameListChangeLayoutEvent extends GameListEvent {
+
+  final ListLayout listLayout;
+
+  const GameListChangeLayoutEvent({required this.listLayout});
 }

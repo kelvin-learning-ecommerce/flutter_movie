@@ -6,15 +6,32 @@ part of 'game_list_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-GameListModel _$GameListModelFromJson(Map<String, dynamic> json) =>
-    GameListModel(
+GameListResponse _$GameListResponseFromJson(Map<String, dynamic> json) =>
+    GameListResponse(
+      count: json['count'] as int,
+      next: json['next'] as String,
+      previous: json['previous'] as String,
+      result: (json['result'] as List<dynamic>)
+          .map((e) => GameListData.fromJson(e as Map<String, dynamic>))
+          .toList(),
+    );
+
+Map<String, dynamic> _$GameListResponseToJson(GameListResponse instance) =>
+    <String, dynamic>{
+      'count': instance.count,
+      'next': instance.next,
+      'previous': instance.previous,
+      'result': instance.result,
+    };
+
+GameListData _$GameListDataFromJson(Map<String, dynamic> json) => GameListData(
       name: json['name'] as String,
       released: json['released'] as String,
       backgroundImage: json['background_image'] as String,
       metaCritic: json['metacritic'] as int,
     );
 
-Map<String, dynamic> _$GameListModelToJson(GameListModel instance) =>
+Map<String, dynamic> _$GameListDataToJson(GameListData instance) =>
     <String, dynamic>{
       'name': instance.name,
       'released': instance.released,
