@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_coding_challenge/config/env.dart';
 
 class GameListView extends StatefulWidget {
   const GameListView({Key? key}) : super(key: key);
@@ -10,6 +11,6 @@ class GameListView extends StatefulWidget {
 class _GameListViewState extends State<GameListView> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Center(child: Text(Env.type.name));
   }
 }

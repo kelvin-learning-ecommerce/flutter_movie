@@ -60,7 +60,7 @@ android {
             versionNameSuffix ".dev"
         }
         production {
-            dimension "counterapp"
+            dimension "challenge"
             applicationIdSuffix ".prod"
             resValue "string", "app_name", "Flutter Coding Challenge Prod"
             versionNameSuffix ".prod"
