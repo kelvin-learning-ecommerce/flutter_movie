@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_coding_challenge/module/list/view/game_list_view.dart';
@@ -30,7 +31,7 @@ class MyApp extends StatelessWidget {
         child: ScreenUtilInit(
             minTextAdapt: true,
             builder: (BuildContext context, Widget? child) => MaterialApp(
-              debugShowCheckedModeBanner: Env.data.debugShowCheckedModeBanner,
+                  debugShowCheckedModeBanner: kDebugMode,
                   title: 'Flutter Coding Challenge',
                   navigatorKey: navigationService.navigatorKey,
                   theme: ThemeData(

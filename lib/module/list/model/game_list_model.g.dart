@@ -7,7 +7,17 @@ part of 'game_list_model.dart';
 // **************************************************************************
 
 GameListModel _$GameListModelFromJson(Map<String, dynamic> json) =>
-    GameListModel();
+    GameListModel(
+      name: json['name'] as String,
+      released: json['released'] as String,
+      backgroundImage: json['background_image'] as String,
+      metaCritic: json['metacritic'] as int,
+    );
 
 Map<String, dynamic> _$GameListModelToJson(GameListModel instance) =>
-    <String, dynamic>{};
+    <String, dynamic>{
+      'name': instance.name,
+      'released': instance.released,
+      'background_image': instance.backgroundImage,
+      'metacritic': instance.metaCritic,
+    };

@@ -5,6 +5,6 @@ import '../network/base_service.dart';
 
 @module
 abstract class AppModule {
-  @preResolve
-  Future<Dio> get dioClient => buildDio();
+  @lazySingleton
+  Dio get dio => buildDio();
 }

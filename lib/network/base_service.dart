@@ -1,34 +1,43 @@
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
 
-import '../DI/di_locator.dart';
 import '../config/env.dart';
 import 'app_interceptor.dart';
 
-var baseService = locator<BaseService>();
-
-abstract class BaseService {
-  Future<dynamic> fetchGameList();
-}
-
 @injectable
-class BaseServiceImp implements BaseService {
-  BaseServiceImp(this._dio);
+class BaseService {
+  BaseService({required this.dio});
 
-  final Dio _dio;
+  final Dio dio;
 
   Future<Response<String>?> _get(String url, {Map<String, dynamic>? queryParameters}) async {
-    return await _dio.get(url, queryParameters: queryParameters);
+    return await dio.get(url, queryParameters: queryParameters);
   }
 
   Future<Response<String>?> _post(String url, {dynamic data, Options? options}) async {
-    return await _dio.post(url, data: data, options: options);
+    return await dio.post(url, data: data, options: options);
   }
 
-  @override
-  Future<dynamic> fetchGameList() async {
+  Future<dynamic> fetchGameList({int? page = 1, int? pageSize = 20}) async {
     try {
-      Response<String>? response = await _get('url');
+      Response<String>? response = await _get("", queryParameters: {
+        "page": page,
+        "page_size": pageSize,
+        "platforms": '187',
+        "ordering": "-released",
+        "key": "02ef6ba5d13444ee86bad607e8bce3f4"
+      });
+
+      return response;
+    } on DioException {
+      throw DioException;
+    }
+  }
+
+  Future<dynamic> fetchGameDetail(String code) async {
+    try {
+      Response<String>? response =
+          await _get("/$code", queryParameters: {"key": "02ef6ba5d13444ee86bad607e8bce3f4"});
 
       return response;
     } on DioException {
@@ -37,7 +46,7 @@ class BaseServiceImp implements BaseService {
   }
 }
 
-Future<Dio> buildDio() async {
+Dio buildDio() {
   var dio = Dio();
 
   dio.interceptors.add(DioInterceptors());

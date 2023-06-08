@@ -1,3 +1,5 @@
+import 'package:flutter_coding_challenge/config/service_url.dart';
+
 class Env {
   Env._();
 
@@ -23,39 +25,26 @@ class Env {
     }
   }
 
-  static var betaHeadUrl = "https://beta.westpointgroup.sg";
-  static var liveHeadUrl = "https://westpointgroup.sg";
-
   static final EnvData _dev = EnvData(
-    debug: true,
-    debugShowCheckedModeBanner: false,
-    debugShowMaterialGrid: false,
-    title: "Westpoint dev",
-    apiUrl: betaHeadUrl,
-    androidPackageName: "com.automotive.westpoint.dev",
-    iosBundleId: "com.automotive.westpoint.dev",
-    //TODO: wait for dev tobe up to appstore
+    title: "Flutter Coding Challenge dev",
+    apiUrl: devBaseUrl,
+    androidPackageName: "com.coding.challenge.dev",
+    iosBundleId: "com.coding.challenge.dev",
     iosAppStoreId: "",
   );
 
   static final EnvData _prod = EnvData(
-    debug: false,
-    debugShowCheckedModeBanner: false,
-    debugShowMaterialGrid: false,
-    title: "Westpoint",
-    apiUrl: liveHeadUrl,
-    androidPackageName: "com.automotive.westpoint",
-    iosBundleId: "com.automotive.westpoint",
-    iosAppStoreId: "1643450495",
+    title: "Flutter Coding Challenge",
+    apiUrl: prodBaseUrl,
+    androidPackageName: "com.coding.challenge",
+    iosBundleId: "com.coding.challenge",
+    iosAppStoreId: "",
   );
 }
 
 enum EnvType { development, production }
 
 class EnvData {
-  final bool debug;
-  final bool debugShowCheckedModeBanner;
-  final bool debugShowMaterialGrid;
   final String title;
   final String apiUrl;
   final String androidPackageName;
@@ -63,9 +52,6 @@ class EnvData {
   final String iosAppStoreId;
 
   EnvData({
-    required this.debug,
-    required this.debugShowCheckedModeBanner,
-    required this.debugShowMaterialGrid,
     required this.title,
     required this.apiUrl,
     required this.androidPackageName,
