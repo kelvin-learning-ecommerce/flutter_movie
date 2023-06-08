@@ -2,6 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_coding_challenge/module/list/view/game_list_view.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'DI/di_locator.dart';
@@ -9,6 +10,7 @@ import 'config/env.dart';
 import 'config/navigation_config.dart';
 import 'config/provider_list.dart';
 import 'config/routes.dart';
+import 'generated/l10n.dart';
 
 void initApp(EnvType env) async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -31,6 +33,13 @@ class MyApp extends StatelessWidget {
         child: ScreenUtilInit(
             minTextAdapt: true,
             builder: (BuildContext context, Widget? child) => MaterialApp(
+                  localizationsDelegates: const [
+                    S.delegate,
+                    GlobalMaterialLocalizations.delegate,
+                    GlobalWidgetsLocalizations.delegate,
+                    GlobalCupertinoLocalizations.delegate,
+                  ],
+                  supportedLocales: S.delegate.supportedLocales,
                   debugShowCheckedModeBanner: kDebugMode,
                   title: 'Flutter Coding Challenge',
                   navigatorKey: navigationService.navigatorKey,

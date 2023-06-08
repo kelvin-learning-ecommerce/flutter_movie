@@ -11,6 +11,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  flutter_localizations:
+    sdk: flutter
 
   # networking
   dio: ^5.2.0
@@ -30,6 +32,7 @@ dependencies:
   #UI
   cupertino_icons: ^1.0.2
   flutter_screenutil: ^5.8.4
+  intl_utils: ^2.8.3
 
 dev_dependencies:
   flutter_test:
@@ -46,3 +49,6 @@ flutter:
 
   assets:
     - assets/images/
+
+flutter_intl:
+  enabled: true
