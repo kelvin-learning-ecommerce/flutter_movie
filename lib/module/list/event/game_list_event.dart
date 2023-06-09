@@ -8,29 +8,19 @@ abstract class GameListEvent extends Equatable {
 }
 
 class GameListLoadingEvent extends GameListEvent {
-
   const GameListLoadingEvent();
 }
 
 class GameListChangeLangEvent extends GameListEvent {
-
-  final String lang;
-
-  const GameListChangeLangEvent({required this.lang});
+  const GameListChangeLangEvent();
 }
 
 class GameListFetchEvent extends GameListEvent {
-
   const GameListFetchEvent();
 }
 
-enum ListLayout{
-  listview, gridview
-}
+enum ListLayout { listview, gridview }
 
 class GameListChangeLayoutEvent extends GameListEvent {
-
-  final ListLayout listLayout;
-
-  const GameListChangeLayoutEvent({required this.listLayout});
+  const GameListChangeLayoutEvent();
 }

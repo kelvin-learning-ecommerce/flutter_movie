@@ -25,11 +25,13 @@ class BaseService {
         "page_size": pageSize,
         "platforms": '187',
         "ordering": "-released",
-        "key": "02ef6ba5d13444ee86bad607e8bce3f4"
+        "key": "02ef6ba5d13444ee86bad607e8bce3f4",
+        "dates":"2018-12-21,2021-12-21"
       });
 
-      return response;
+      return response?.data;
     } on DioException {
+      print("DioException $DioException");
       throw DioException;
     }
   }
@@ -39,7 +41,7 @@ class BaseService {
       Response<String>? response =
           await _get("/$code", queryParameters: {"key": "02ef6ba5d13444ee86bad607e8bce3f4"});
 
-      return response;
+      return response?.data;
     } on DioException {
       throw DioException;
     }
@@ -54,7 +56,7 @@ Dio buildDio() {
 
   // dio.options.headers['Authorization'] = 'Bearer ''$token';
 
-  dio.options.baseUrl = "${Env.data.apiUrl}/api/v1/";
+  dio.options.baseUrl = Env.data.apiUrl;
   dio.options.contentType = Headers.jsonContentType;
   dio.options.connectTimeout = const Duration(minutes: 10);
   dio.options.receiveTimeout = const Duration(minutes: 10);

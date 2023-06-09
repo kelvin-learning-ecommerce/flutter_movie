@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:equatable/equatable.dart';
 
 import '../event/game_list_event.dart';
@@ -12,7 +14,11 @@ class GameListStateInit extends GameListState {}
 
 class GameListStateLoading extends GameListState {}
 
-class GameListStateChangeLang extends GameListState {}
+class GameListStateChangeLang extends GameListState {
+  final Locale lang;
+  GameListStateChangeLang({required this.lang});
+
+}
 
 class GameListStateError extends GameListState {
   final String error;
@@ -25,4 +31,10 @@ class GameListStateSuccess extends GameListState {
   final ListLayout listLayout;
 
   GameListStateSuccess({required this.result, required this.listLayout});
+}
+
+class GameListStateLayoutType extends GameListState {
+  final ListLayout layoutType;
+
+  GameListStateLayoutType({required this.layoutType});
 }

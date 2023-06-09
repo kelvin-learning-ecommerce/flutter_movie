@@ -7,7 +7,7 @@ Widget listviewLayout(List<GameListData> result) {
       itemBuilder: (context, index) {
         var item = result[index];
         return Column(
-          children: [Text(item.name)],
+          children: [Text(item.name ?? 'game name')],
         );
       },
       separatorBuilder: (context, index) => const Divider(
@@ -18,17 +18,15 @@ Widget listviewLayout(List<GameListData> result) {
 }
 
 Widget gridviewLayout(List<GameListData> result) {
-  return ListView.separated(
-      shrinkWrap: true,
-      itemBuilder: (context, index) {
-        var item = result[index];
-        return Column(
-          children: [Text(item.name)],
-        );
-      },
-      separatorBuilder: (context, index) => const Divider(
-            height: 2,
-            color: Colors.transparent,
-          ),
-      itemCount: result.length);
+  return GridView.builder(
+    gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
+    itemBuilder: (_, index) {
+      var item = result[index];
+      return Column(
+        children: [Text(item.name ?? 'game name')],
+      );
+    },
+    shrinkWrap: true,
+    itemCount: result.length,
+  );
 }

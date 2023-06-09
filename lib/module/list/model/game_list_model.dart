@@ -8,12 +8,12 @@ class GameListResponse {
       {required this.count,
         required this.next,
         required this.previous,
-        required this.result});
+        required this.results});
 
-  final int count;
-  final String next;
-  final String previous;
-  final List<GameListData> result;
+  final int? count;
+  final String? next;
+  final String? previous;
+  final List<GameListData>? results;
 
   factory GameListResponse.fromJson(Map<String, dynamic> json) {
     return _$GameListResponseFromJson(json);
@@ -30,12 +30,12 @@ class GameListData {
       required this.backgroundImage,
       required this.metaCritic});
 
-  final String name;
-  final String released;
+  final String? name;
+  final String? released;
   @JsonKey(name: 'background_image')
-  final String backgroundImage;
+  final String? backgroundImage;
   @JsonKey(name: 'metacritic')
-  final int metaCritic;
+  final int? metaCritic;
 
   factory GameListData.fromJson(Map<String, dynamic> json) {
     return _$GameListDataFromJson(json);

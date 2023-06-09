@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_coding_challenge/module/list/state/game_list_state.dart';
 import 'package:injectable/injectable.dart';
@@ -15,6 +17,7 @@ class GameListBloc extends Bloc<GameListEvent, GameListState> {
 
   ListLayout listLayout = ListLayout.listview;
   List<GameListData> result = [];
+  Locale currLang = const Locale("Indonesia", 'id');
 
   GameListBloc(this.apiRepository) : super(GameListStateInit()) {
     on<GameListFetchEvent>((event, emit) async {
@@ -25,7 +28,7 @@ class GameListBloc extends Bloc<GameListEvent, GameListState> {
 
         result.clear();
 
-        result.addAll(response.result);
+        result.addAll(response.results ?? []);
 
         emit(GameListStateSuccess(result: result, listLayout: listLayout));
       } catch (e) {
@@ -34,7 +37,13 @@ class GameListBloc extends Bloc<GameListEvent, GameListState> {
     });
 
     on<GameListChangeLangEvent>((event, emit) async {
-      emit(GameListStateChangeLang());
+      emit(GameListStateLoading());
+
+      currLang = changeLanguage(currLang);
+
+      print('currLang $currLang');
+
+      emit(GameListStateChangeLang(lang: currLang));
     });
 
     on<GameListChangeLayoutEvent>((event, emit) async {
@@ -46,7 +55,21 @@ class GameListBloc extends Bloc<GameListEvent, GameListState> {
         listLayout = ListLayout.listview;
       }
 
-      emit(GameListStateSuccess(result: result, listLayout: event.listLayout));
+      emit(GameListStateSuccess(result: result, listLayout: listLayout));
+
+      emit(GameListStateLayoutType(layoutType: listLayout));
     });
+  }
+
+  Locale changeLanguage(Locale language) {
+    Locale a;
+    switch (language.countryCode) {
+      case "id":
+        a = const Locale("English", "en");
+        break;
+      default:
+        a = const Locale("Indonesia", 'id');
+    }
+    return a;
   }
 }

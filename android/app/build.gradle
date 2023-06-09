@@ -56,14 +56,19 @@ android {
         development {
             dimension "challenge"
             applicationIdSuffix ".dev"
-            resValue "string", "app_name", "Flutter Coding Challenge Dev"
             versionNameSuffix ".dev"
+            manifestPlaceholders = [
+                    applicationName: 'DEV Flutter Coding Challenge'
+            ]
         }
         production {
             dimension "challenge"
             applicationIdSuffix ".prod"
             resValue "string", "app_name", "Flutter Coding Challenge Prod"
             versionNameSuffix ".prod"
+            manifestPlaceholders = [
+                    applicationName: 'PROD Flutter Coding Challenge'
+            ]
         }
 
     }

@@ -8,11 +8,11 @@ part of 'game_list_model.dart';
 
 GameListResponse _$GameListResponseFromJson(Map<String, dynamic> json) =>
     GameListResponse(
-      count: json['count'] as int,
-      next: json['next'] as String,
-      previous: json['previous'] as String,
-      result: (json['result'] as List<dynamic>)
-          .map((e) => GameListData.fromJson(e as Map<String, dynamic>))
+      count: json['count'] as int?,
+      next: json['next'] as String?,
+      previous: json['previous'] as String?,
+      results: (json['results'] as List<dynamic>?)
+          ?.map((e) => GameListData.fromJson(e as Map<String, dynamic>))
           .toList(),
     );
 
@@ -21,14 +21,14 @@ Map<String, dynamic> _$GameListResponseToJson(GameListResponse instance) =>
       'count': instance.count,
       'next': instance.next,
       'previous': instance.previous,
-      'result': instance.result,
+      'results': instance.results,
     };
 
 GameListData _$GameListDataFromJson(Map<String, dynamic> json) => GameListData(
-      name: json['name'] as String,
-      released: json['released'] as String,
-      backgroundImage: json['background_image'] as String,
-      metaCritic: json['metacritic'] as int,
+      name: json['name'] as String?,
+      released: json['released'] as String?,
+      backgroundImage: json['background_image'] as String?,
+      metaCritic: json['metacritic'] as int?,
     );
 
 Map<String, dynamic> _$GameListDataToJson(GameListData instance) =>

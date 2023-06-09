@@ -18,7 +18,7 @@ class ApiRepository {
   // @override
   Future<GameListResponse> fetchGameList() async {
     var res = await baseService.fetchGameList();
-    return GameListResponse.fromJson(jsonDecode(res));
+    return GameListResponse.fromJson(jsonDecode(res.toString()));
   }
 }
 
