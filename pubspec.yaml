@@ -56,3 +56,8 @@ flutter:
 
 flutter_intl:
   enabled: true
+
+flutter_icons:
+  image_path: "assets/images/app_logo.png"
+  android: true
+  ios: true
