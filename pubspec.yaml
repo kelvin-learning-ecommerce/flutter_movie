@@ -33,7 +33,6 @@ dependencies:
   #UI
   cupertino_icons: ^1.0.2
   flutter_screenutil: ^5.8.4
-  #  intl_utils: ^2.8.3
   intl: ^0.18.0
   intl_utils: ^2.8.3
 
