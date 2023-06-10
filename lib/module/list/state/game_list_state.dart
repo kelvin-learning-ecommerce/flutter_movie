@@ -12,6 +12,8 @@ class GameListStateInit extends GameListState {}
 
 class GameListStateLoading extends GameListState {}
 
+class GameListStateLoadMore extends GameListState {}
+
 class GameListStateError extends GameListState {
   final String error;
 

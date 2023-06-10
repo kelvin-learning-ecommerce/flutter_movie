@@ -20,12 +20,21 @@ class GameListView extends StatefulWidget {
 }
 
 class _GameListViewState extends State<GameListView> {
+  ScrollController scrollController = ScrollController();
+
   @override
   void initState() {
     super.initState();
 
     Future.delayed(const Duration(seconds: 1), () {
-      gameListBloc?.add(const GameListFetchEvent());
+      gameListBloc?.add(const GameListFetchEvent(true));
+    });
+
+    scrollController.addListener(() {
+      if (scrollController.position.maxScrollExtent ==
+          scrollController.position.pixels) {
+        gameListBloc?.add(const GameListFetchEvent(false));
+      }
     });
   }
 
@@ -101,8 +110,8 @@ class _GameListViewState extends State<GameListView> {
                   );
                 } else if (state is GameListStateSuccess) {
                   return state.listLayout == ListLayout.listview
-                      ? listviewLayout(state.result)
-                      : gridviewLayout(state.result);
+                      ? listviewLayout(scrollController, state.result)
+                      : gridviewLayout(scrollController, state.result);
                 } else if (state is GameListStateError) {
                   return Center(child: Text(state.error));
                 }
@@ -111,6 +120,17 @@ class _GameListViewState extends State<GameListView> {
               },
             ),
           ),
+          BlocBuilder<GameListBloc, GameListState>(
+            builder: (context, state) {
+              if (state is GameListStateLoadMore) {
+                return const Center(
+                  child: RefreshProgressIndicator(),
+                );
+              }
+
+              return Container();
+            },
+          )
         ],
       ),
     );

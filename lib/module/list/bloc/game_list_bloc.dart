@@ -15,21 +15,34 @@ class GameListBloc extends Bloc<GameListEvent, GameListState> {
 
   ListLayout listLayout = ListLayout.listview;
   List<GameListData> result = [];
+  int page = 1;
+  bool isLoading = false;
 
   GameListBloc(this.apiRepository) : super(GameListStateInit()) {
     on<GameListFetchEvent>((event, emit) async {
-      emit(GameListStateLoading());
+      if (!isLoading) {
+        isLoading = true;
 
-      try {
-        var response = await apiRepository.fetchGameList();
+        if (event.isFirstPage) {
+          emit(GameListStateLoading());
+          result.clear();
+        } else {
+          emit(GameListStateLoadMore());
+        }
 
-        result.clear();
+        try {
+          var response = await apiRepository.fetchGameList(page);
 
-        result.addAll(response.results ?? []);
+          result.addAll(response.results ?? []);
 
-        emit(GameListStateSuccess(result: result, listLayout: listLayout));
-      } catch (e) {
-        emit(GameListStateError(error: e.toString()));
+          emit(GameListStateSuccess(result: result, listLayout: listLayout));
+
+          page += 1;
+        } catch (e) {
+          emit(GameListStateError(error: e.toString()));
+        }
+
+        isLoading = false;
       }
     });
 

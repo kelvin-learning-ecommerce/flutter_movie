@@ -67,12 +67,12 @@ Widget screenshotTab(GameDetailResponse detail) {
                 var tag = detail.tags ?? [];
                 return AppCachedNetworkImage(
                   height: 100.h,
-                  width: 50.w,
+                  width: 200.w,
                   url: tag[pos].imageBackground ?? '',
                 );
               },
               separatorBuilder: (context, index) => Container(
-                    width: 5.w,
+                    width: 10.w,
                   ),
               itemCount: detail.tags?.length ?? 0),
         )

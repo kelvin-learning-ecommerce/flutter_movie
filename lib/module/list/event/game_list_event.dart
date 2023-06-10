@@ -12,7 +12,8 @@ class GameListLoadingEvent extends GameListEvent {
 }
 
 class GameListFetchEvent extends GameListEvent {
-  const GameListFetchEvent();
+  final bool isFirstPage;
+  const GameListFetchEvent(this.isFirstPage);
 }
 
 enum ListLayout { listview, gridview }

@@ -16,8 +16,8 @@ class ApiRepository {
 
   final BaseService baseService;
 
-  Future<GameListResponse> fetchGameList() async {
-    var res = await baseService.fetchGameList();
+  Future<GameListResponse> fetchGameList(int page) async {
+    var res = await baseService.fetchGameList(page: page);
     return GameListResponse.fromJson(jsonDecode(res.toString()));
   }
 
