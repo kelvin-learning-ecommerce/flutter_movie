@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_coding_challenge/module/detail/model/game_detail_model.dart';
 import 'package:injectable/injectable.dart';
 
 import '../config/navigation_config.dart';
@@ -15,14 +16,13 @@ class ApiRepository {
 
   final BaseService baseService;
 
-  // @override
   Future<GameListResponse> fetchGameList() async {
     var res = await baseService.fetchGameList();
     return GameListResponse.fromJson(jsonDecode(res.toString()));
   }
-}
 
-String getData(data) {
-  var convert = jsonDecode(data.toString());
-  return jsonEncode(convert['data']);
+  Future<GameDetailResponse> fetchGameDetail(int gameId) async {
+    var res = await baseService.fetchGameDetail(gameId);
+    return GameDetailResponse.fromJson(jsonDecode(res.toString()));
+  }
 }

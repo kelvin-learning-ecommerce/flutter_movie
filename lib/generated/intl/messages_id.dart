@@ -22,6 +22,10 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "game_detail_unavailable": MessageLookupByLibrary.simpleMessage(
+            "Informasi game tidak tersedia"),
+        "image_unavailable":
+            MessageLookupByLibrary.simpleMessage("Gambar tidak tersedia"),
         "main_title": MessageLookupByLibrary.simpleMessage("Daftar Game")
       };
 }

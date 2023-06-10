@@ -25,6 +25,7 @@ Map<String, dynamic> _$GameListResponseToJson(GameListResponse instance) =>
     };
 
 GameListData _$GameListDataFromJson(Map<String, dynamic> json) => GameListData(
+      id: json['id'] as int?,
       name: json['name'] as String?,
       released: json['released'] as String?,
       backgroundImage: json['background_image'] as String?,
@@ -33,6 +34,7 @@ GameListData _$GameListDataFromJson(Map<String, dynamic> json) => GameListData(
 
 Map<String, dynamic> _$GameListDataToJson(GameListData instance) =>
     <String, dynamic>{
+      'id': instance.id,
       'name': instance.name,
       'released': instance.released,
       'background_image': instance.backgroundImage,

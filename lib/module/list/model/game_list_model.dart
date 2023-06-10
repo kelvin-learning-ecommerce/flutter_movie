@@ -4,11 +4,7 @@ part 'game_list_model.g.dart';
 
 @JsonSerializable()
 class GameListResponse {
-  GameListResponse(
-      {required this.count,
-        required this.next,
-        required this.previous,
-        required this.results});
+  GameListResponse({required this.count, required this.next, required this.previous, required this.results});
 
   final int? count;
   final String? next;
@@ -25,11 +21,13 @@ class GameListResponse {
 @JsonSerializable()
 class GameListData {
   GameListData(
-      {required this.name,
+      {required this.id,
+      required this.name,
       required this.released,
       required this.backgroundImage,
       required this.metaCritic});
 
+  final int? id;
   final String? name;
   final String? released;
   @JsonKey(name: 'background_image')

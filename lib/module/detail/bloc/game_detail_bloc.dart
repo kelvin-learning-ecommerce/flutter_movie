@@ -12,5 +12,22 @@ var gameDetailBloc = navigationService.navigatorKey.currentContext?.read<GameDet
 class GameDetailBloc extends Bloc<GameDetailEvent, GameDetailState> {
   final ApiRepository apiRepository;
 
-  GameDetailBloc(this.apiRepository) : super(GameDetailStateInit()) {}
+  GameDetailBloc(this.apiRepository) : super(GameDetailInitState()) {
+    on<GameDetailEventFetch>((event, emit) async {
+      emit(GameDetailLoadingState());
+
+      try {
+        var response = await apiRepository.fetchGameDetail(event.id);
+
+        emit(GameDetailSuccessState(response));
+      } catch (e) {
+        emit(GameDetailErrorState(e.toString()));
+      }
+    });
+    on<GameDetailTabEvent>((event, emit) async {
+      emit(GameDetailLoadTabState());
+
+      emit(GameDetailTabState(event.pos));
+    });
+  }
 }

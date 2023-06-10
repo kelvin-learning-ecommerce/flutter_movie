@@ -5,8 +5,9 @@ part 'game_detail_args.g.dart';
 @JsonSerializable()
 class GameDetailArgs {
   String title;
+  int id;
 
-  GameDetailArgs(this.title);
+  GameDetailArgs(this.title, this.id);
 
   factory GameDetailArgs.fromJson(Map<String, dynamic> json) {
     return _$GameDetailArgsFromJson(json);

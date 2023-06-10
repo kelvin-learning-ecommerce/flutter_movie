@@ -1,3 +1,5 @@
 {
-  "main_title": "Daftar Game"
+  "main_title": "Daftar Game",
+  "image_unavailable": "Gambar tidak tersedia",
+  "game_detail_unavailable": "Informasi game tidak tersedia"
 }

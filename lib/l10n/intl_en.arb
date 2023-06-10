@@ -1,3 +1,5 @@
 {
-  "main_title": "Game List"
+  "main_title": "Game List",
+  "image_unavailable": "Image Not Available",
+  "game_detail_unavailable": "Game data Not Available"
 }

@@ -59,6 +59,26 @@ class S {
       args: [],
     );
   }
+
+  /// `Image Not Available`
+  String get image_unavailable {
+    return Intl.message(
+      'Image Not Available',
+      name: 'image_unavailable',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Game data Not Available`
+  String get game_detail_unavailable {
+    return Intl.message(
+      'Game data Not Available',
+      name: 'game_detail_unavailable',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

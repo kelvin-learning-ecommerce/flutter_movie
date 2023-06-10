@@ -9,7 +9,7 @@ Widget listviewLayout(List<GameListData> result) {
       itemBuilder: (context, index) {
         var item = result[index];
         return InkWell(
-          onTap: () => context.goToDetail(GameDetailArgs(item.name ?? '').toJson()),
+          onTap: () => context.goToDetail(GameDetailArgs(item.name ?? '', item.id ?? 0).toJson()),
           child: Column(
             children: [Text(item.name ?? 'game name')],
           ),
