@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 import 'package:equatable/equatable.dart';
 
 import '../event/game_list_event.dart';
@@ -13,12 +11,6 @@ abstract class GameListState extends Equatable {
 class GameListStateInit extends GameListState {}
 
 class GameListStateLoading extends GameListState {}
-
-class GameListStateChangeLang extends GameListState {
-  final Locale lang;
-  GameListStateChangeLang({required this.lang});
-
-}
 
 class GameListStateError extends GameListState {
   final String error;

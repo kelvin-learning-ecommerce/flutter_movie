@@ -6,7 +6,6 @@ part 'game_detail_model.g.dart';
 class GameDetailResponse {
   GameDetailResponse();
 
-
   factory GameDetailResponse.fromJson(Map<String, dynamic> json) {
     return _$GameDetailResponseFromJson(json);
   }

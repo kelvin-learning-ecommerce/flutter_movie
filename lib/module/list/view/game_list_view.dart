@@ -4,10 +4,13 @@ import 'package:flutter_coding_challenge/module/list/bloc/game_list_bloc.dart';
 import 'package:flutter_coding_challenge/module/list/event/game_list_event.dart';
 import 'package:flutter_coding_challenge/module/list/state/game_list_state.dart';
 import 'package:flutter_coding_challenge/module/list/view/game_list_view_ext.dart';
+import 'package:flutter_coding_challenge/module/locale/state/locale_state.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../generated/l10n.dart';
 import '../../../utils/image_path.dart';
+import '../../locale/bloc/locale_bloc.dart';
+import '../../locale/event/locale_event.dart';
 
 class GameListView extends StatefulWidget {
   const GameListView({Key? key}) : super(key: key);
@@ -31,24 +34,23 @@ class _GameListViewState extends State<GameListView> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        // Env.data.title
-        title: Text(S.of(context).view),
+        title: Text(S.of(context).main_title),
       ),
       body: Column(
         children: [
-          Container(
-            margin: REdgeInsets.all(10),
-            child: Row(
-              children: [
-                InkWell(
+          Row(
+            children: [
+              Container(
+                padding: REdgeInsets.all(10),
+                child: InkWell(
                   onTap: () {
-                    gameListBloc?.add(const GameListChangeLangEvent());
+                    localeBloc?.add(const LocaleChangeLangEvent());
                   },
-                  child: BlocBuilder<GameListBloc, GameListState>(
-                    buildWhen: (prev, state) => state is GameListStateChangeLang,
+                  child: BlocBuilder<LocaleBloc, LocaleState>(
+                    buildWhen: (prev, state) => state is LocaleStateLoading || state is LocaleStateChangeLocale,
                     builder: (context, state) {
-                      if (state is GameListStateChangeLang) {
-                        if (state.lang.countryCode == "en") {
+                      if (state is LocaleStateChangeLocale) {
+                        if (langModel?.currLang.countryCode == "en") {
                           return Image.asset(
                             enIc,
                             width: 20.w,
@@ -65,8 +67,11 @@ class _GameListViewState extends State<GameListView> {
                     },
                   ),
                 ),
-                const Spacer(),
-                InkWell(
+              ),
+              const Spacer(),
+              Container(
+                padding: REdgeInsets.all(10),
+                child: InkWell(
                   onTap: () {
                     gameListBloc?.add(const GameListChangeLayoutEvent());
                   },
@@ -81,15 +86,13 @@ class _GameListViewState extends State<GameListView> {
                     },
                   ),
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
           Expanded(
             child: BlocBuilder<GameListBloc, GameListState>(
               buildWhen: (previousState, state) {
-                return state is GameListStateLoading ||
-                    state is GameListStateSuccess ||
-                    state is GameListStateError;
+                return state is GameListStateLoading || state is GameListStateSuccess || state is GameListStateError;
               },
               builder: (context, state) {
                 if (state is GameListStateLoading) {

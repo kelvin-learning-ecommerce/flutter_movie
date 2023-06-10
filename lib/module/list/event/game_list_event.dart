@@ -11,10 +11,6 @@ class GameListLoadingEvent extends GameListEvent {
   const GameListLoadingEvent();
 }
 
-class GameListChangeLangEvent extends GameListEvent {
-  const GameListChangeLangEvent();
-}
-
 class GameListFetchEvent extends GameListEvent {
   const GameListFetchEvent();
 }
