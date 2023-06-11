@@ -7,10 +7,6 @@ abstract class GameListEvent extends Equatable {
   List<Object?> get props => [];
 }
 
-class GameListLoadingEvent extends GameListEvent {
-  const GameListLoadingEvent();
-}
-
 class GameListFetchEvent extends GameListEvent {
   final bool isFirstPage;
   const GameListFetchEvent(this.isFirstPage);

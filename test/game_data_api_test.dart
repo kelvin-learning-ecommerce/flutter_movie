@@ -1,6 +1,8 @@
 import 'dart:convert';
 
 import 'package:dio/dio.dart';
+import 'package:equatable/equatable.dart';
+import 'package:flutter_coding_challenge/module/list/bloc/game_list_bloc.dart';
 import 'package:flutter_coding_challenge/module/list/model/game_list_model.dart';
 import 'package:flutter_coding_challenge/network/api_repository.dart';
 import 'package:flutter_coding_challenge/network/base_service.dart';
@@ -16,15 +18,14 @@ void main() {
   late MockDio mockDio;
   late ApiRepository apiRepository;
   late BaseService baseService;
-  // String gameListRaw = '';
+  late GameListBloc gameListBloc;
 
   setUp(() async {
+    EquatableConfig.stringify = true;
     mockDio = MockDio();
-
+    gameListBloc = GameListBloc(apiRepository);
     baseService = BaseService(dio: mockDio);
-
     apiRepository = ApiRepository(baseService: baseService);
-    // gameListRaw = await readJson();
   });
 
   GameListResponse gameListRawModel = GameListResponse.fromJson(jsonDecode(gameListRawString));
