@@ -42,7 +42,7 @@ void main() {
       queryParameters: queryParam,
     )).thenAnswer((_) => Future.value(Response(
           statusCode: 200,
-          data: gameListRawString,
+          data: jsonDecode(gameListRawString),
           requestOptions: RequestOptions(path: 'https://api.rawg.io/api/games', queryParameters: queryParam),
         )));
 
