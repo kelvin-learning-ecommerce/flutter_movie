@@ -10,19 +10,19 @@ class BaseService {
 
   final Dio dio;
 
-  Future<Response<String>?> _get(String url, {Map<String, dynamic>? queryParameters}) async {
+  Future<Response<dynamic>?> _get(String url, {Map<String, dynamic>? queryParameters}) async {
     return await dio.get(url, queryParameters: queryParameters);
   }
 
-  Future<dynamic> fetchGameList({int? page = 1, int? pageSize = 20}) async {
+  Future<dynamic> fetchGameList({String? url, int? page = 1, int? pageSize = 20}) async {
     try {
-      Response<String>? response = await _get("", queryParameters: {
+      Response<dynamic>? response = await _get(url ?? "", queryParameters: {
         "page": page,
         "page_size": pageSize,
         "platforms": '187',
         "ordering": "-released",
         "key": "02ef6ba5d13444ee86bad607e8bce3f4",
-        "dates":"2018-12-21,2021-12-21"
+        "dates": "2018-12-21,2021-12-21"
       });
 
       return response?.data;
@@ -33,8 +33,7 @@ class BaseService {
 
   Future<dynamic> fetchGameDetail(int code) async {
     try {
-      Response<String>? response =
-          await _get("/$code", queryParameters: {"key": "02ef6ba5d13444ee86bad607e8bce3f4"});
+      Response<dynamic>? response = await _get("/$code", queryParameters: {"key": "02ef6ba5d13444ee86bad607e8bce3f4"});
 
       return response?.data;
     } on DioException {

@@ -16,13 +16,13 @@ class ApiRepository {
 
   final BaseService baseService;
 
-  Future<GameListResponse> fetchGameList(int page) async {
-    var res = await baseService.fetchGameList(page: page);
-    return GameListResponse.fromJson(jsonDecode(res.toString()));
+  Future<GameListResponse> fetchGameList(int page, {String? url}) async {
+    var res = await baseService.fetchGameList(page: page, url: url);
+    return GameListResponse.fromJson(res);
   }
 
   Future<GameDetailResponse> fetchGameDetail(int gameId) async {
     var res = await baseService.fetchGameDetail(gameId);
-    return GameDetailResponse.fromJson(jsonDecode(res.toString()));
+    return GameDetailResponse.fromJson(res);
   }
 }

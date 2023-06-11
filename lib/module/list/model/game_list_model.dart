@@ -1,10 +1,11 @@
+import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'game_list_model.g.dart';
 
 @JsonSerializable()
-class GameListResponse {
-  GameListResponse({required this.count, required this.next, required this.previous, required this.results});
+class GameListResponse extends Equatable {
+  const GameListResponse({this.count, this.next, this.previous, this.results});
 
   final int? count;
   final String? next;
@@ -16,11 +17,14 @@ class GameListResponse {
   }
 
   Map<String, dynamic> toJson() => _$GameListResponseToJson(this);
+
+  @override
+  List<Object?> get props => [count, next, previous, results];
 }
 
 @JsonSerializable()
-class GameListData {
-  GameListData(
+class GameListData extends Equatable {
+  const GameListData(
       {required this.id,
       required this.name,
       required this.released,
@@ -40,4 +44,7 @@ class GameListData {
   }
 
   Map<String, dynamic> toJson() => _$GameListDataToJson(this);
+
+  @override
+  List<Object?> get props => [id, name, released, backgroundImage, metaCritic];
 }

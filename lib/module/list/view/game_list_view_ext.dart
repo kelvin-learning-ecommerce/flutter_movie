@@ -58,10 +58,39 @@ Widget gridviewLayout(ScrollController scrollController, List<GameListData> resu
   return GridView.builder(
     controller: scrollController,
     gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
+
     itemBuilder: (_, index) {
       var item = result[index];
-      return Column(
-        children: [Text(item.name ?? 'game name')],
+      return Container(
+        margin: REdgeInsets.all(10),
+        padding: REdgeInsets.only(top: 10),
+        decoration: BoxDecoration(shape: BoxShape.rectangle, border: Border.all(color: Colors.blueAccent)),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            AppCachedNetworkImage(
+              height: 50.h,
+              width: 100.w,
+              fit: BoxFit.contain,
+              url: item.backgroundImage ?? '',
+            ),
+            const SizedBox(
+              height: 10,
+            ),
+            Text("Name: ${item.name}"),
+            const SizedBox(
+              height: 10,
+            ),
+            Text('Released date: ${item.released}'),
+            const SizedBox(
+              height: 10,
+            ),
+            Text("Metacritic Score : ${item.metaCritic}"),
+            const SizedBox(
+              height: 10,
+            ),
+          ],
+        ),
       );
     },
     shrinkWrap: true,
