@@ -116,6 +116,13 @@ Now, lets dive into the lib folder which has the main code for the application.
     email: 99group.coding.challenge@gmail.com
     password: 99Gpass!23
 
+    triggered on new tag creation
+    watched tag pattern:
+    *.prod
+    *-prod
+    *-build
+    *.build
+
 ### Routes
 
     Navigator.pushNamed({context}, {routes-name}, arguments: {arguments model})
