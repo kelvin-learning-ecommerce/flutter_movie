@@ -87,7 +87,6 @@ flutter-app/
 
 Here is the folder structure we have been using in this project
 
-```
 lib/
 |- config/
 |- DI/
@@ -112,7 +111,7 @@ Now, lets dive into the lib folder which has the main code for the application.
 7- utils — Contains helper class.
 8- main.dart, init_app.dart, main_dev.dart, main_prod.dart - Setup env config.
 
-##Codemagic info
+### Codemagic info
     email: 99group.coding.challenge@gmail.com
     password: 99Gpass!23
 
@@ -126,7 +125,3 @@ Now, lets dive into the lib folder which has the main code for the application.
 ### Routes
 
     Navigator.pushNamed({context}, {routes-name}, arguments: {arguments model})
-
-## github token
-https://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@github.com/99groupcodingchallenge/99group-flutter-coding-challenge.git
-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
