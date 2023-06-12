@@ -10,8 +10,15 @@ flutter used for develop is v3.10.0
 
 To generate key (only needed to release to Play Store):
 
-    cd android
-    keytool -genkey -alias 99groupKey -keyalg RSA -keystore keystore.jks -dname "CN=99group Coding Challenge, OU=99group Coding Challenge, O=99group, L=Jakarta, S=Jakarta, C=ID" -storepass 99groupKeystorePass -keypass 99groupKeystorePass -deststoretype pkcs12 -keysize 4096 -validity 20000
+    cd android/app/
+    keytool -genkey -alias 99groupAlias -keyalg RSA -keystore keystore.jks -dname "CN=99group Coding Challenge, OU=99group Coding Challenge, O=99group, L=Jakarta, S=Jakarta, C=ID" -storepass 99groupKeystorePass -keypass 99groupKeystorePass -deststoretype pkcs12 -keysize 4096 -validity 20000
+
+create `key.properties` in the android root path:
+
+    keyAlias=CHANGE_ME
+    keyPassword=CHANGE_ME
+    storeFile=keystore.jks
+    storePassword=CHANGE_ME
 
 to generate localization, please use
 
