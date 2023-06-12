@@ -57,8 +57,8 @@ Widget listviewLayout(ScrollController scrollController, List<GameListData> resu
 Widget gridviewLayout(ScrollController scrollController, List<GameListData> result) {
   return GridView.builder(
     controller: scrollController,
-    gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
-
+    gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2,
+    childAspectRatio: 0.75),
     itemBuilder: (_, index) {
       var item = result[index];
       return Container(

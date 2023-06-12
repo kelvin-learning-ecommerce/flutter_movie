@@ -2,7 +2,7 @@ import 'package:flutter_coding_challenge/main.dart' as main_app;
 import 'package:flutter_test/flutter_test.dart';
 import 'package:integration_test/integration_test.dart';
 
-import '../screen/game_list_screen.dart';
+import 'screen/game_list_screen.dart';
 
 void main() {
   final binding = IntegrationTestWidgetsFlutterBinding.ensureInitialized();

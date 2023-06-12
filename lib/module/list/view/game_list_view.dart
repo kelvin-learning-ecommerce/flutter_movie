@@ -81,6 +81,7 @@ class _GameListViewState extends State<GameListView> {
               Container(
                 padding: REdgeInsets.all(10),
                 child: InkWell(
+                  key: const Key("GameListChangeLayoutEvent"),
                   onTap: () {
                     gameListBloc?.add(const GameListChangeLayoutEvent());
                   },

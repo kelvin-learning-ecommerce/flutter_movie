@@ -6,17 +6,11 @@ class GameListScreen {
 
   GameListScreen(this.tester);
 
-  final _addTodoIconLocator = find.byType(InkWell);
+  final _addTodoIconLocator = find.byKey(const Key("GameListChangeLayoutEvent"));
 
   Future<void> testInkWell() async {
     await tester.tap(_addTodoIconLocator, warnIfMissed: true);
     await tester.pumpAndSettle();
-    // await tester.enterText(_todoTitleTextField, title);
-    // await tester.testTextInput.receiveAction(TextInputAction.done);
-    // await tester.enterText(_todoDescriptionTextField, title);
-    // await tester.testTextInput.receiveAction(TextInputAction.done);
-    // await tester.tap(_createTodoIcon, warnIfMissed: true);
-    // await tester.pumpAndSettle();
   }
 
   Future<bool> check({String? title}) async {
