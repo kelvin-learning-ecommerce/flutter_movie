@@ -52,6 +52,7 @@ class _GameListViewState extends State<GameListView> {
               Container(
                 padding: REdgeInsets.all(10),
                 child: InkWell(
+                  key: const Key("changeLanguageButton"),
                   onTap: () {
                     localeBloc?.add(const LocaleChangeLangEvent());
                   },

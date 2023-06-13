@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:flutter_coding_challenge/module/detail/model/game_detail_model.dart';
 import 'package:injectable/injectable.dart';
 

@@ -28,8 +28,6 @@ This project uses `inject` library and auto serialize models that works with cod
 execute the following command to generate files:
 
     flutter packages pub run build_runner build --delete-conflicting-outputs
-    or :
-    flutter packages pub run build_runner watch --delete-conflicting-outputs
 
 to update app icon
 
