@@ -2,9 +2,10 @@ import 'dart:convert';
 
 import 'package:dio/dio.dart';
 import 'package:equatable/equatable.dart';
-import 'package:flutter_coding_challenge/module/list/model/game_list_model.dart';
-import 'package:flutter_coding_challenge/network/api_repository.dart';
-import 'package:flutter_coding_challenge/network/base_service.dart';
+import 'package:flutter_coding_challenge/data/repositories/api_repository_impl.dart';
+import 'package:flutter_coding_challenge/data/repositories/base/api_service.dart';
+import 'package:flutter_coding_challenge/domain/models/response/game_list_response.dart';
+import 'package:flutter_coding_challenge/domain/repositories/api_repository.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
@@ -16,13 +17,13 @@ import 'game_list_raw.dart';
 void main() {
   late MockDio mockDio;
   late ApiRepository apiRepository;
-  late BaseService baseService;
+  late ApiService baseService;
 
   setUp(() async {
     EquatableConfig.stringify = true;
     mockDio = MockDio();
-    baseService = BaseService(dio: mockDio);
-    apiRepository = ApiRepository(baseService: baseService);
+    baseService = ApiServiceImpl(dio: mockDio);
+    apiRepository = ApiRepositoryImpl(baseService: baseService);
   });
 
   GameListResponse gameListRawModel = GameListResponse.fromJson(jsonDecode(gameListRawString));
@@ -43,7 +44,8 @@ void main() {
     )).thenAnswer((_) => Future.value(Response(
           statusCode: 200,
           data: jsonDecode(gameListRawString),
-          requestOptions: RequestOptions(path: 'https://api.rawg.io/api/games', queryParameters: queryParam),
+          requestOptions:
+              RequestOptions(path: 'https://api.rawg.io/api/games', queryParameters: queryParam),
         )));
 
     expect(
