@@ -1,6 +1,7 @@
 import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_coding_challenge/config/DI/di_locator.dart';
 import 'package:flutter_coding_challenge/domain/models/response/game_detail_response.dart';
 import 'package:flutter_coding_challenge/generated/l10n.dart';
 import 'package:flutter_coding_challenge/presentation/blocs/game_detail_bloc.dart';
@@ -8,6 +9,7 @@ import 'package:flutter_coding_challenge/presentation/events/game_detail_event.d
 import 'package:flutter_coding_challenge/presentation/states/game_detail_state.dart';
 import 'package:flutter_coding_challenge/presentation/views/game_detail_view.dart';
 import 'package:flutter_coding_challenge/presentation/views/game_detail_view_ext.dart';
+import 'package:flutter_coding_challenge/presentation/widgets/cached_network_image_utils.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -24,6 +26,7 @@ void main() {
     });
 
     TestWidgetsFlutterBinding.ensureInitialized();
+    configureDependencies();
 
     testWidgets('Game Detail Page UI Test Success State', (WidgetTester tester) async {
       // arrange

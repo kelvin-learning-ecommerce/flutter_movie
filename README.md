@@ -138,3 +138,5 @@ Now, lets dive into the lib folder which has the main code for the application.
 ### Routes
 
     Navigator.pushNamed({context}, {routes-name}, arguments: {arguments model})
+
+### Flutter test code coverage screenshot

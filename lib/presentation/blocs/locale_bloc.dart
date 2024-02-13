@@ -14,7 +14,7 @@ class LocaleBloc extends Bloc<LocaleEvent, LocaleState> {
     on<LocaleChangeLangEvent>((event, emit) {
       emit(LocaleStateLoading());
       langModel?.currLang = _changeLanguage(langModel?.currLang.countryCode ?? 'id');
-      emit(LocaleStateChangeLocale());
+      emit(LocaleStateChangeLocale(locale: langModel?.currLang));
     });
   }
 

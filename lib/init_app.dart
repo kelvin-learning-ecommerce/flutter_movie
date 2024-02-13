@@ -38,7 +38,7 @@ class MyApp extends StatelessWidget {
                   builder: (context, state) {
                     var countryCode = 'en';
                     if (state is LocaleStateChangeLocale) {
-                      countryCode = langModel?.currLang.countryCode ?? 'en';
+                      countryCode = state.locale?.countryCode ?? "en";
                     }
 
                     return MaterialApp(

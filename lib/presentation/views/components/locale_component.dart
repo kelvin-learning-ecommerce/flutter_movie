@@ -23,7 +23,7 @@ class LocaleComponent extends StatelessWidget {
           buildWhen: (prev, state) => state is LocaleStateLoading || state is LocaleStateChangeLocale,
           builder: (context, state) {
             if (state is LocaleStateChangeLocale) {
-              if (langModel?.currLang.countryCode == "en") {
+              if (state.locale?.countryCode == "en") {
                 return Image.asset(
                   enIc,
                   width: 20.w,
