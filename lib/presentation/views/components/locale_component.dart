@@ -38,7 +38,9 @@ class LocaleComponent extends StatelessWidget {
               }
             }
 
-            return Container();
+            return Container(
+              key: const Key("Locale default widget"),
+            );
           },
         ),
       ),

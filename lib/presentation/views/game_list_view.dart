@@ -37,9 +37,7 @@ class _GameListScreenState extends State<GameListScreen> {
   void initState() {
     super.initState();
 
-    // Future.delayed(const Duration(seconds: 1), () {
       gameListBloc?.add(const GameListFetchEvent(true));
-    // });
 
     scrollController.addListener(() {
       if (scrollController.position.maxScrollExtent == scrollController.position.pixels) {

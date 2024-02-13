@@ -94,6 +94,7 @@ class _GameDetailContentWidgetState extends State<GameDetailContentWidget> with 
   void initState() {
     super.initState();
     tabCtrl = TabController(length: 2, vsync: this);
+    gameDetailBloc?.add(const GameDetailTabEvent(0));
   }
 
   @override

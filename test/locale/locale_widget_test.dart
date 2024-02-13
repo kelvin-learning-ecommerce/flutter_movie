@@ -1,6 +1,7 @@
 import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_coding_challenge/config/DI/di_locator.dart';
 import 'package:flutter_coding_challenge/generated/l10n.dart';
 import 'package:flutter_coding_challenge/presentation/blocs/game_list_bloc.dart';
 import 'package:flutter_coding_challenge/presentation/blocs/locale_bloc.dart';
@@ -26,6 +27,7 @@ void main(){
     });
 
     TestWidgetsFlutterBinding.ensureInitialized();
+    configureDependencies();
 
     testWidgets('Game List Page Change Language Test', (WidgetTester tester) async {
       // arrange
@@ -57,19 +59,23 @@ void main(){
       expect(imageWidget, findsNothing);
     });
 
-    testWidgets('Game List Page Change Language - Tap Test', (WidgetTester tester) async {
+    testWidgets('Game List Page Change Language - Test Tap', (WidgetTester tester) async {
       // arrange
       when(() => mockLocaleBloc.state).thenReturn(
-        LocaleStateLoading(), // the desired state
+        LocaleStateChangeLocale(), // the desired state
       );
 
       // find
       var testedWidget = const LocaleComponent();
-      final imageWidget = find.byType(Image);
+      final inkWellWidget = find.byKey(const Key("changeLanguageButton"));
 
       await tester.pumpWidget(parentWidget(testedWidget, mockLocaleBloc));
 
-      expect(imageWidget, findsNothing);
+      await tester.tap(inkWellWidget);
+
+      await tester.pumpAndSettle();
+
+      expect(find.byKey(const Key("Locale default widget")), findsNothing);
     });
   });
 

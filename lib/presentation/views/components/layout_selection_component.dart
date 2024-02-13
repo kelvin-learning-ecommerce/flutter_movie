@@ -25,7 +25,9 @@ class LayoutSelectionComponent extends StatelessWidget {
               return Text("${state.layoutType?.name.toLowerCase()}", key: const Key("Layout Selection Info"));
             }
 
-            return Container();
+            return Container(
+              key: const Key("Layout Selection default widget"),
+            );
           },
         ),
       ),

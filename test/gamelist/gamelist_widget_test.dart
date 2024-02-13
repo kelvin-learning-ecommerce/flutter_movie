@@ -106,6 +106,25 @@ void main() {
       expect(keyWidget, findsNothing);
     });
 
+    testWidgets('Game List Page Change Layout - Test Tap', (WidgetTester tester) async {
+      // arrange
+      when(() => mockGameListPageBloc.state).thenReturn(
+        GameListStateLayoutType(), // the desired state
+      );
+
+      // find
+      var testedWidget = const LayoutSelectionComponent();
+      final inkWellWidget = find.byKey(const Key("GameListChangeLayoutEvent"));
+
+      await tester.pumpWidget(parentWidget(testedWidget, mockGameListPageBloc));
+
+      await tester.tap(inkWellWidget);
+
+      await tester.pumpAndSettle();
+
+      expect(find.byKey(const Key("Layout Selection default widget")), findsNothing);
+    });
+
     testWidgets('Game List Page Content Loading State', (WidgetTester tester) async {
       // arrange
       when(() => mockGameListPageBloc.state).thenReturn(

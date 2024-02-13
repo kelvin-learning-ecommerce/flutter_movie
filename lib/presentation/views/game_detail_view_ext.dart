@@ -5,42 +5,50 @@ import 'package:html/parser.dart';
 import '../../domain/models/response/game_detail_response.dart';
 import '../widgets/cached_network_image_utils.dart';
 
-class InfoTab extends StatelessWidget {
+class InfoTab extends StatefulWidget {
   final GameDetailResponse detail;
 
-  InfoTab({Key? key, required this.detail}) : super(key: key);
+  const InfoTab({Key? key, required this.detail}) : super(key: key);
 
+  @override
+  State<InfoTab> createState() => _InfoTabState();
+}
+
+class _InfoTabState extends State<InfoTab> {
   var genre = '';
   var platform = '';
   var publisher = '';
   var developer = '';
 
   @override
-  Widget build(BuildContext context) {
-    detail.genres?.forEach((element) {
+  void initState() {
+    super.initState();
+
+    widget.detail.genres?.forEach((element) {
       genre += "${element.name}, ";
     });
 
-    detail.platforms?.forEach((element) {
+    widget.detail.platforms?.forEach((element) {
       platform += "${element.platform?.name}, ";
     });
 
-    detail.publishers?.forEach((element) {
+    widget.detail.publishers?.forEach((element) {
       publisher += "${element.name}, ";
     });
 
-    detail.developers?.forEach((element) {
+    widget.detail.developers?.forEach((element) {
       developer += "${element.name}, ";
     });
+  }
 
-    var desc = detail.descriptionRaw ?? "";
-
+  @override
+  Widget build(BuildContext context) {
     return Center(
       child: ListView(
         key: const Key("infoTab Listview"),
         shrinkWrap: true,
         children: [
-          Text("Description: ${parse(desc).documentElement?.text}"),
+          Text("Description: ${parse(widget.detail.descriptionRaw ?? "").documentElement?.text}"),
           SizedBox(
             height: 5.h,
           ),
