@@ -4,8 +4,15 @@ part 'game_detail_response.g.dart';
 
 @JsonSerializable()
 class GameDetailResponse {
-  GameDetailResponse(this.name, this.descriptionRaw, this.genres, this.platforms, this.developers, this.publishers,
-      this.tags, this.backgroundImage);
+  GameDetailResponse(
+      {this.name,
+      this.descriptionRaw,
+      this.genres,
+      this.platforms,
+      this.developers,
+      this.publishers,
+      this.tags,
+      this.backgroundImage});
 
   final String? name;
   @JsonKey(name: 'description_raw')

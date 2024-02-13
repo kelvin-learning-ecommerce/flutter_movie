@@ -9,5 +9,5 @@ import '../../presentation/blocs/game_list_bloc.dart';
 var providerList = [
   BlocProvider<GameListBloc>(create: (_) => GameListBloc(locator())),
   BlocProvider<GameDetailBloc>(create: (_) => GameDetailBloc(locator())),
-  BlocProvider<LocaleBloc>(create: (_) => LocaleBloc(LocaleStateInit())),
+  BlocProvider<LocaleBloc>(create: (_) => LocaleBloc()),
 ];

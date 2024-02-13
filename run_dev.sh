@@ -1,2 +1,2 @@
 #!/bin/bash
-fvm flutter run -t lib/main_dev.dart --flavor development --debug -d PZQSSC7HAQWONZH6
+fvm flutter run -t lib/main_dev.dart --flavor development --debug

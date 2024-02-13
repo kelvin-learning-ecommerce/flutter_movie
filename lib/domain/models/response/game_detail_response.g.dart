@@ -8,24 +8,24 @@ part of 'game_detail_response.dart';
 
 GameDetailResponse _$GameDetailResponseFromJson(Map<String, dynamic> json) =>
     GameDetailResponse(
-      json['name'] as String?,
-      json['description_raw'] as String?,
-      (json['genres'] as List<dynamic>?)
+      name: json['name'] as String?,
+      descriptionRaw: json['description_raw'] as String?,
+      genres: (json['genres'] as List<dynamic>?)
           ?.map((e) => GenreResponse.fromJson(e as Map<String, dynamic>))
           .toList(),
-      (json['platforms'] as List<dynamic>?)
+      platforms: (json['platforms'] as List<dynamic>?)
           ?.map((e) => PlatformsResponse.fromJson(e as Map<String, dynamic>))
           .toList(),
-      (json['developers'] as List<dynamic>?)
+      developers: (json['developers'] as List<dynamic>?)
           ?.map((e) => DevelopersResponse.fromJson(e as Map<String, dynamic>))
           .toList(),
-      (json['publishers'] as List<dynamic>?)
+      publishers: (json['publishers'] as List<dynamic>?)
           ?.map((e) => PublisherResponse.fromJson(e as Map<String, dynamic>))
           .toList(),
-      (json['tags'] as List<dynamic>?)
+      tags: (json['tags'] as List<dynamic>?)
           ?.map((e) => TagsResponse.fromJson(e as Map<String, dynamic>))
           .toList(),
-      json['background_image'] as String?,
+      backgroundImage: json['background_image'] as String?,
     );
 
 Map<String, dynamic> _$GameDetailResponseToJson(GameDetailResponse instance) =>

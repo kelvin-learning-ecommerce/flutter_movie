@@ -33,8 +33,7 @@ class MyApp extends StatelessWidget {
         providers: providerList,
         child: ScreenUtilInit(
             minTextAdapt: true,
-            builder: (BuildContext context, Widget? child) =>
-                BlocBuilder<LocaleBloc, LocaleState>(
+            builder: (BuildContext context, Widget? child) => BlocBuilder<LocaleBloc, LocaleState>(
                   buildWhen: (prev, state) => state is LocaleStateLoading || state is LocaleStateChangeLocale,
                   builder: (context, state) {
                     var countryCode = 'en';
@@ -63,7 +62,6 @@ class MyApp extends StatelessWidget {
                       home: const GameListView(),
                     );
                   },
-                )
-                ));
+                )));
   }
 }

@@ -15,9 +15,7 @@ class GameDetailLoadingState extends GameDetailState {}
 class GameDetailLoadTabState extends GameDetailState {}
 
 class GameDetailErrorState extends GameDetailState {
-  final String error;
-
-  GameDetailErrorState(this.error);
+  GameDetailErrorState();
 }
 
 class GameDetailSuccessState extends GameDetailState {

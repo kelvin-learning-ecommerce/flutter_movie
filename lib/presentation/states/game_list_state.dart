@@ -22,13 +22,13 @@ class GameListStateError extends GameListState {
 
 class GameListStateSuccess extends GameListState {
   final List<GameListData> result;
-  final ListLayout listLayout;
+  final ListLayout? listLayout;
 
-  GameListStateSuccess({required this.result, required this.listLayout});
+  GameListStateSuccess({required this.result, this.listLayout});
 }
 
 class GameListStateLayoutType extends GameListState {
-  final ListLayout layoutType;
+  final ListLayout? layoutType;
 
-  GameListStateLayoutType({required this.layoutType});
+  GameListStateLayoutType({this.layoutType});
 }

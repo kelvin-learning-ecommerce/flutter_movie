@@ -41,8 +41,7 @@ class ApiServiceImpl implements ApiService {
   @override
   Future<dynamic> fetchGameDetail(int code) async {
     try {
-      Response<dynamic>? response =
-          await _get("/$code", queryParameters: {"key": "02ef6ba5d13444ee86bad607e8bce3f4"});
+      Response<dynamic>? response = await _get("/$code", queryParameters: {"key": "02ef6ba5d13444ee86bad607e8bce3f4"});
 
       return response?.data;
     } on DioException {

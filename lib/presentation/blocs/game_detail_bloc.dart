@@ -21,7 +21,7 @@ class GameDetailBloc extends Bloc<GameDetailEvent, GameDetailState> {
 
         emit(GameDetailSuccessState(response));
       } catch (e) {
-        emit(GameDetailErrorState(e.toString()));
+        emit(GameDetailErrorState());
       }
     });
     on<GameDetailTabEvent>((event, emit) async {

@@ -10,7 +10,7 @@ var localeBloc = navigationService.navigatorKey.currentContext?.read<LocaleBloc>
 LocaleModel? langModel = LocaleModel();
 
 class LocaleBloc extends Bloc<LocaleEvent, LocaleState> {
-  LocaleBloc(LocaleState initialState) : super(initialState) {
+  LocaleBloc() : super(LocaleStateInit()) {
     on<LocaleChangeLangEvent>((event, emit) {
       emit(LocaleStateLoading());
       langModel?.currLang = _changeLanguage(langModel?.currLang.countryCode ?? 'id');

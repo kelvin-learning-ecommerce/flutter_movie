@@ -24,12 +24,7 @@ class GameListResponse extends Equatable {
 
 @JsonSerializable()
 class GameListData extends Equatable {
-  const GameListData(
-      {required this.id,
-      required this.name,
-      required this.released,
-      required this.backgroundImage,
-      required this.metaCritic});
+  const GameListData({this.id, this.name, this.released, this.backgroundImage, this.metaCritic});
 
   final int? id;
   final String? name;
