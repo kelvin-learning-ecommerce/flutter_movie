@@ -7,6 +7,8 @@ import 'package:flutter_coding_challenge/presentation/views/components/locale_co
 
 import '../../generated/l10n.dart';
 import '../blocs/game_list_bloc.dart';
+import '../blocs/locale_bloc.dart';
+import '../events/locale_event.dart';
 
 class GameListView extends StatelessWidget {
   const GameListView({Key? key}) : super(key: key);
@@ -37,7 +39,9 @@ class _GameListScreenState extends State<GameListScreen> {
   void initState() {
     super.initState();
 
-      gameListBloc?.add(const GameListFetchEvent(true));
+    gameListBloc?.add(const GameListFetchEvent(true));
+    gameListBloc?.add(const GameListChangeLayoutEvent());
+    localeBloc?.add(const LocaleChangeLangEvent());
 
     scrollController.addListener(() {
       if (scrollController.position.maxScrollExtent == scrollController.position.pixels) {
