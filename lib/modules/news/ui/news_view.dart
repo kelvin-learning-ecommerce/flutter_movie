@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:magnus_flutter_kelvin_prayitno/modules/news/bloc/news_bloc.dart';
-import 'package:magnus_flutter_kelvin_prayitno/modules/widgets/app_bar.dart';
 
-import '../../../generated/l10n.dart';
 import '../../locale/bloc/locale_bloc.dart';
 import '../../locale/events/locale_event.dart';
+import '../../widgets/debouncer.dart';
 import '../../widgets/search_text_field.dart';
 import 'components/layout_selection_component.dart';
 import 'components/locale_component.dart';
@@ -45,6 +44,8 @@ class _NewsListScreenState extends State<NewsListScreen> {
 
   TextEditingController searchController = TextEditingController();
 
+  final _debouncer = Debouncer(milliseconds: 1000);
+
   @override
   void initState() {
     super.initState();
@@ -68,6 +69,11 @@ class _NewsListScreenState extends State<NewsListScreen> {
         SearchTextField(
           controller: searchController,
           labelText: 'Search',
+          onTextChanged: (String text) {
+            _debouncer.run(() {
+              newsBloc?.add(NewsFetchEvent(true, query: text));
+            });
+          },
         ),
         const Row(
           children: [

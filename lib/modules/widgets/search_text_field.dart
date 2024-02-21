@@ -3,16 +3,10 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class SearchTextField extends StatefulWidget {
   final TextEditingController controller;
-  final bool isPassword;
   final String labelText;
-  final String? errorMessage;
+  final Function(String)? onTextChanged;
 
-  const SearchTextField(
-      {Key? key,
-      required this.controller,
-      this.isPassword = false,
-      required this.labelText,
-      this.errorMessage})
+  const SearchTextField({Key? key, required this.controller, required this.labelText, this.onTextChanged})
       : super(key: key);
 
   @override
@@ -20,42 +14,41 @@ class SearchTextField extends StatefulWidget {
 }
 
 class _SearchTextFieldState extends State<SearchTextField> {
-  bool isPasswordVisible = false;
-
   @override
   Widget build(BuildContext context) {
     return Center(
       child: Container(
-        width: 200.w,
-        margin: REdgeInsets.only(bottom: 12.h),
-        child: TextFormField(
-          controller: widget.controller,
-          cursorColor: Colors.black,
-          maxLength: 20,
-          obscureText: !isPasswordVisible && widget.isPassword,
-          decoration: InputDecoration(
-            labelText: widget.labelText,
-            labelStyle: const TextStyle(
-              color: Colors.grey,
+        margin: REdgeInsets.symmetric(vertical: 12.h, horizontal: 24.w),
+        child: Stack(
+          children: [
+            Align(
+              alignment: Alignment.bottomRight,
+              child: Container(
+                margin: REdgeInsets.only(top: 10.h),
+                child: Icon(
+                  Icons.search,
+                  color: Theme.of(context).primaryColorDark,
+                ),
+              ),
             ),
-            errorText: widget.errorMessage,
-            suffixIcon: widget.isPassword
-                ? IconButton(
-                    icon: Icon(
-                      isPasswordVisible ? Icons.visibility : Icons.visibility_off,
-                      color: Theme.of(context).primaryColorDark,
-                    ),
-                    onPressed: () {
-                      setState(() {
-                        isPasswordVisible = !isPasswordVisible;
-                      });
-                    },
-                  )
-                : null,
-            enabledBorder: UnderlineInputBorder(
-              borderSide: BorderSide(color: Color(0xFF6200EE)),
-            ),
-          ),
+            Align(
+              alignment: Alignment.topCenter,
+              child: TextFormField(
+                textAlign: TextAlign.center,
+                onChanged: (String text) {
+                  widget.onTextChanged?.call(text);
+                },
+                controller: widget.controller,
+                cursorColor: Colors.black,
+                decoration: InputDecoration(
+                  hintText: widget.labelText,
+                  labelStyle: const TextStyle(
+                    color: Colors.grey,
+                  ),
+                ),
+              ),
+            )
+          ],
         ),
       ),
     );

@@ -10,3 +10,7 @@ abstract class SplashScreenEvent extends Equatable {
 class SplashScreenNextPageEvent extends SplashScreenEvent {
   const SplashScreenNextPageEvent();
 }
+
+class SplashScreenCheckMagnusAccountEvent extends SplashScreenEvent {
+  const SplashScreenCheckMagnusAccountEvent();
+}

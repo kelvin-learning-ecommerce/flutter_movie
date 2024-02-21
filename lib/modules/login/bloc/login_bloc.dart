@@ -1,6 +1,8 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
+import 'package:magnus_flutter_kelvin_prayitno/domain/repositories/floor_repository.dart';
 import 'package:magnus_flutter_kelvin_prayitno/domain/repositories/storage_repository.dart';
+import 'package:magnus_flutter_kelvin_prayitno/utils/enum/login_error_enum.dart';
 
 import '../../../config/router/navigation_config.dart';
 import '../../../domain/models/response/news_response.dart';
@@ -12,21 +14,26 @@ var loginBloc = navigationService.navigatorKey.currentContext?.read<LoginBloc>()
 
 @injectable
 class LoginBloc extends Bloc<LoginEvent, LoginState> {
-  final ApiRepository apiRepository;
+  final FloorRepository floorRepo;
   final StorageRepository storageRepository;
 
   int page = 1;
   bool isLoading = false;
 
-  LoginBloc(this.apiRepository, this.storageRepository) : super(LoginStateInit()) {
+  LoginBloc(this.floorRepo, this.storageRepository) : super(LoginStateInit()) {
     on<LoginAttemptEvent>((event, emit) async {
       emit(LoginStateLoading());
 
-      if(event.username == "magnus" && event.password=="magnusaja"){
+      var q = floorRepo.findUser(event.username);
+      var res = await q.first;
+
+      if (res == null) {
+        emit(LoginStateError(LoginError.userNotFound));
+      } else if (event.password == res.password) {
         storageRepository.storeIsLogin(true);
         emit(LoginStateSuccess());
-      }else{
-        emit(LoginStateError());
+      } else {
+        emit(LoginStateError(LoginError.userWrongCredential));
       }
     });
   }

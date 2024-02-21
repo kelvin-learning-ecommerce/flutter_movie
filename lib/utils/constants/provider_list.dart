@@ -12,5 +12,5 @@ var providerList = [
   BlocProvider<NewsBloc>(create: (_) => NewsBloc(locator())),
   BlocProvider<NewsDetailBloc>(create: (_) => NewsDetailBloc(locator())),
   BlocProvider<LocaleBloc>(create: (_) => LocaleBloc()),
-  BlocProvider<SplashScreenBloc>(create: (_) => SplashScreenBloc(locator())),
+  BlocProvider<SplashScreenBloc>(create: (_) => SplashScreenBloc(locator(), locator())),
 ];

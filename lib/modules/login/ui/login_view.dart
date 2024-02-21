@@ -6,6 +6,7 @@ import 'package:magnus_flutter_kelvin_prayitno/modules/login/events/login_event.
 import 'package:magnus_flutter_kelvin_prayitno/modules/login/states/login_state.dart';
 import 'package:magnus_flutter_kelvin_prayitno/modules/widgets/custom_text_field.dart';
 import 'package:magnus_flutter_kelvin_prayitno/modules/widgets/app_bar.dart';
+import 'package:magnus_flutter_kelvin_prayitno/utils/enum/login_error_enum.dart';
 import 'package:magnus_flutter_kelvin_prayitno/utils/extensions/routes_ext.dart';
 
 import '../../../generated/l10n.dart';
@@ -52,7 +53,7 @@ class _LoginScreenState extends State<LoginScreen> {
           context.goToHome();
         } else if (state is LoginStateError) {
           setState(() {
-            errorMessage = "Please check your login data";
+            errorMessage = state.error == LoginError.userNotFound ? "User not found" : "Please check your login data";
           });
         }
       },
