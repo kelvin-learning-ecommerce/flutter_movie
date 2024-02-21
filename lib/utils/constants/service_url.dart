@@ -1,2 +1,2 @@
-const devBaseUrl = 'https://api.rawg.io/api/games';
-const prodBaseUrl = 'https://api.rawg.io/api/games';
+const devBaseUrl = 'https://newsapi.org/v2/';
+const prodBaseUrl = 'https://newsapi.org/v2/';

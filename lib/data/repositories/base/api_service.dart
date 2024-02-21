@@ -5,9 +5,7 @@ import '../../../utils/resources/env.dart';
 import '../../../config/network/app_interceptor.dart';
 
 abstract class ApiService {
-  Future<dynamic> fetchGameList({String? url, int? page = 1, int? pageSize = 20});
-
-  Future<dynamic> fetchGameDetail(int code);
+  Future<dynamic> fetchNews({String? url, String? q, required int page});
 }
 
 @Injectable(as: ApiService)
@@ -21,27 +19,13 @@ class ApiServiceImpl implements ApiService {
   }
 
   @override
-  Future<dynamic> fetchGameList({String? url, int? page = 1, int? pageSize = 20}) async {
+  Future fetchNews({String? url, String? q, required int page}) async {
     try {
       Response<dynamic>? response = await _get(url ?? "", queryParameters: {
+        "q": q,
+        "apikey": "92a2a1bb14fa45bf813474bf76f49355",
         "page": page,
-        "page_size": pageSize,
-        "platforms": '187',
-        "ordering": "-released",
-        "key": "02ef6ba5d13444ee86bad607e8bce3f4",
-        "dates": "2018-12-21,2021-12-21"
       });
-
-      return response?.data;
-    } on DioException {
-      throw DioException;
-    }
-  }
-
-  @override
-  Future<dynamic> fetchGameDetail(int code) async {
-    try {
-      Response<dynamic>? response = await _get("/$code", queryParameters: {"key": "02ef6ba5d13444ee86bad607e8bce3f4"});
 
       return response?.data;
     } on DioException {

@@ -1,5 +1,8 @@
 {
-  "main_title": "Game List",
+  "login_title": "Login",
+  "news_title": "News",
+  "home_title": "Home",
+  "profile_tab_title": "Profile",
   "image_unavailable": "Image Not Available",
   "game_detail_unavailable": "Game data Not Available"
 }

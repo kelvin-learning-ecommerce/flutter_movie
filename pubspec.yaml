@@ -1,12 +1,10 @@
-name: flutter_coding_challenge
-description: 99group Flutter Coding Challenge
-
-publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+name: magnus_flutter_kelvin_prayitno
+description: Magnus Project Challenge by Kelvin Prayitno
 
 version: 1.0.0+1
 
 environment:
-  sdk: ">=2.15.0 <=3.0.0"
+  sdk: ">=2.15.0 <=3.10.0"
 
 dependencies:
   flutter:
@@ -36,6 +34,7 @@ dependencies:
   intl: ^0.18.0
   intl_utils: ^2.8.3
   mocktail: ^1.0.3
+  flutter_secure_storage: ^9.0.0
 
 dev_dependencies:
   flutter_test:
@@ -64,6 +63,6 @@ flutter_intl:
   enabled: true
 
 flutter_icons:
-  image_path: "assets/images/app_logo.png"
+  image_path: "assets/images/ic_magnus.jpeg"
   android: true
   ios: true

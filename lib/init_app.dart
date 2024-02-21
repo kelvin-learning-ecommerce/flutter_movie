@@ -1,19 +1,20 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_coding_challenge/presentation/views/game_list_view.dart';
-import 'package:flutter_coding_challenge/presentation/blocs/locale_bloc.dart';
-import 'package:flutter_coding_challenge/utils/resources/env.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:magnus_flutter_kelvin_prayitno/modules/login/ui/login_view.dart';
+import 'package:magnus_flutter_kelvin_prayitno/utils/resources/env.dart';
 
 import 'config/DI/di_locator.dart';
 import 'config/router/navigation_config.dart';
 import 'config/router/routes.dart';
+import 'modules/locale/bloc/locale_bloc.dart';
+import 'modules/locale/states/locale_state.dart';
+import 'modules/splashscreen/ui/splash_view.dart';
 import 'utils/constants/provider_list.dart';
 import 'generated/l10n.dart';
-import 'presentation/states/locale_state.dart';
 
 void initApp(EnvType env) async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -59,7 +60,7 @@ class MyApp extends StatelessWidget {
                         primarySwatch: Colors.blue,
                       ),
                       onGenerateRoute: initRouter,
-                      home: const GameListView(),
+                      home: const SplashScreen(),
                     );
                   },
                 )));

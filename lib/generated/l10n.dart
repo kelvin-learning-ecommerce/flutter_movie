@@ -50,11 +50,41 @@ class S {
     return Localizations.of<S>(context, S);
   }
 
-  /// `Game List`
-  String get main_title {
+  /// `Login`
+  String get login_title {
     return Intl.message(
-      'Game List',
-      name: 'main_title',
+      'Login',
+      name: 'login_title',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `News`
+  String get news_title {
+    return Intl.message(
+      'News',
+      name: 'news_title',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Home`
+  String get home_title {
+    return Intl.message(
+      'Home',
+      name: 'home_title',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Profile`
+  String get profile_tab_title {
+    return Intl.message(
+      'Profile',
+      name: 'profile_tab_title',
       desc: '',
       args: [],
     );

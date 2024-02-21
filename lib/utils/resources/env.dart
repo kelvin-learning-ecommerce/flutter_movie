@@ -1,4 +1,4 @@
-import 'package:flutter_coding_challenge/utils/constants/service_url.dart';
+import '../constants/service_url.dart';
 
 class Env {
   Env._();
@@ -28,16 +28,16 @@ class Env {
   static final EnvData _dev = EnvData(
     title: "Flutter Coding Challenge dev",
     apiUrl: devBaseUrl,
-    androidPackageName: "com.coding.challenge.dev",
-    iosBundleId: "com.coding.challenge.dev",
+    androidPackageName: "com.magnus.kelvin.dev",
+    iosBundleId: "com.magnus.kelvin.dev",
     iosAppStoreId: "",
   );
 
   static final EnvData _prod = EnvData(
     title: "Flutter Coding Challenge",
     apiUrl: prodBaseUrl,
-    androidPackageName: "com.coding.challenge",
-    iosBundleId: "com.coding.challenge",
+    androidPackageName: "com.magnus.kelvin",
+    iosBundleId: "com.magnus.kelvin",
     iosAppStoreId: "",
   );
 }

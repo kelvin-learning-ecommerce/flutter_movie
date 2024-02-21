@@ -1,5 +1,8 @@
 {
-  "main_title": "Daftar Game",
+  "login_title": "Masuk",
+  "news_title": "Berita",
+  "home_title": "Beranda",
+  "profile_tab_title": "Profil",
   "image_unavailable": "Gambar tidak tersedia",
   "game_detail_unavailable": "Informasi game tidak tersedia"
 }

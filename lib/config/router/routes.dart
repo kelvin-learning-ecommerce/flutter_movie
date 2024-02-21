@@ -1,20 +1,22 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_coding_challenge/presentation/views/game_detail_view.dart';
-import 'package:flutter_coding_challenge/presentation/views/game_list_view.dart';
+import 'package:magnus_flutter_kelvin_prayitno/modules/home/ui/home_view.dart';
+import 'package:magnus_flutter_kelvin_prayitno/modules/login/ui/login_view.dart';
 
-const String gameListRoutes = '/GameList';
-const String gameDetailRoutes = '/GameDetail';
+import '../../modules/newsdetail/ui/news_detail_view.dart';
+
+const String homeRoutes = '/HomeRoutes';
+const String newsDetailRoutes = '/NewsDetailRoutes';
+const String loginRoutes = '/LoginRoutes';
+const String splashRoutes = '/SplashRoutes';
 
 Route<dynamic> initRouter(RouteSettings settings) {
   switch (settings.name) {
-    case gameListRoutes:
+    case newsDetailRoutes:
       return MaterialPageRoute(
-          builder: (context) => const GameListView(), settings: const RouteSettings());
+          builder: (context) => NewsDetailView(), settings: const RouteSettings());
+    case homeRoutes:
+      return MaterialPageRoute(builder: (context) => const HomeView(), settings: const RouteSettings());
     default:
-      return MaterialPageRoute(
-          builder: (context) => GameDetailView(
-                args: settings.arguments,
-              ),
-          settings: const RouteSettings());
+      return MaterialPageRoute(builder: (context) => LoginView(), settings: const RouteSettings());
   }
 }
