@@ -8,11 +8,6 @@ abstract class NewsDetailEvent extends Equatable {
   List<Object?> get props => [];
 }
 
-class NewsDetailLoadEvent extends NewsDetailEvent {
-  final NewsArticles data;
-  const NewsDetailLoadEvent(this.data);
-}
-
 class NewsDetailTabEvent extends NewsDetailEvent {
   final int pos;
   const NewsDetailTabEvent(this.pos);

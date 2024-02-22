@@ -14,7 +14,7 @@ abstract class AppModule {
   @lazySingleton
   FlutterSecureStorage get secureStorage => const FlutterSecureStorage();
 
-  @lazySingleton
+  @preResolve
   Future<AppDatabase> get floorDB async {
     return await $FloorAppDatabase.databaseBuilder(floorDbName).build();
   }

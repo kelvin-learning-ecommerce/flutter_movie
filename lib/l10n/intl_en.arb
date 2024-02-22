@@ -13,5 +13,6 @@
   "empty_label": "Empty",
   "register_success_label": "Register Success",
   "user_not_found_error": "User not found",
-  "check_login_data_error": "Please check your login data"
+  "check_login_data_error": "Please check your login data",
+  "user_not_available_error": "Username unavailable"
 }

@@ -20,7 +20,7 @@ void initApp(EnvType env) async {
   WidgetsFlutterBinding.ensureInitialized();
   Env.init(env);
 
-  configureDependencies();
+  await configureDependencies();
 
   runApp(const MyApp());
 }

@@ -8,14 +8,9 @@ abstract class NewsDetailState extends Equatable {
 }
 
 class NewsDetailStateInit extends NewsDetailState {}
-class NewsDetailStateLoad extends NewsDetailState {
-  final NewsArticles data;
-  NewsDetailStateLoad(this.data);
-
-}
 
 class NewsDetailStateTabChange extends NewsDetailState {
   final int pos;
-  NewsDetailStateTabChange(this.pos);
 
+  NewsDetailStateTabChange(this.pos);
 }

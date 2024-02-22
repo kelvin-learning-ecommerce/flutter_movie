@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../utils/enum/news_enum.dart';
 import '../../../login/states/login_state.dart';
 import '../../bloc/news_bloc.dart';
 import '../../events/news_event.dart';
@@ -19,7 +20,7 @@ class NewsContentComponent extends StatelessWidget {
         return state is NewsStateLoading || state is NewsStateSuccess || state is NewsStateError;
       },
       builder: (context, state) {
-        if (state is LoginStateLoading) {
+        if (state is NewsStateLoading) {
           return const Center(
             child: RefreshProgressIndicator(),
           );
@@ -28,7 +29,7 @@ class NewsContentComponent extends StatelessWidget {
               ? listviewLayout(scrollController, state.result)
               : gridviewLayout(scrollController, state.result);
         } else if (state is NewsStateError) {
-          return Center(child: Text(state.error));
+          return Center(child: Text(errorMessage(state.error)));
         }
 
         return Container(
@@ -36,5 +37,13 @@ class NewsContentComponent extends StatelessWidget {
         );
       },
     );
+  }
+
+  String errorMessage(NewsError err) {
+    if (err == NewsError.noResult) {
+      return "No News Found";
+    } else {
+      return "Please input search";
+    }
   }
 }

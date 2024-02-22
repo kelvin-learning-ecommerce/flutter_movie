@@ -13,12 +13,15 @@ class NewsDetailBloc extends Bloc<NewsDetailEvent, NewsDetailState> {
   final ApiRepository apiRepository;
 
   NewsDetailBloc(this.apiRepository) : super(NewsDetailStateInit()) {
-    on<NewsDetailLoadEvent>((event, emit) async {
-        //   if (!isLoading) {
-        //     isLoading = true;
-        //
-        //     isLoading = false;
-        //   }
-        });
+    // on<NewsDetailLoadEvent>((event, emit) async {
+    //   emit(NewsDetailStateInit());
+    //
+    //   emit(NewsDetailStateLoad(event));
+    // });
+    on<NewsDetailTabEvent>((event, emit) async {
+      emit(NewsDetailStateInit());
+
+      emit(NewsDetailStateTabChange(event.pos));
+    });
   }
 }

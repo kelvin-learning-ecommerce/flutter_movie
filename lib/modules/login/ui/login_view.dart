@@ -91,7 +91,9 @@ class _LoginScreenState extends State<LoginScreen> {
           ),
           AppButton(
             label: S.of(context).register_label,
-            function: () {},
+            function: () {
+              context.goToRegister();
+            },
           )
         ],
       ),

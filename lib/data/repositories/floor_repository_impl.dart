@@ -10,16 +10,22 @@ class FloorRepositoryImpl implements FloorRepository {
 
   final AppDatabase sqlDB;
 
-  @override
-  Stream<UserEntity?> findUser(String username) {
-    final userDao = sqlDB.userDao;
-    return userDao.findUser(username);
-  }
+  // @override
+  // Stream<UserEntity?> findUser(String username) {
+  //   final userDao = sqlDB.userDao;
+  //   return userDao.findUser(username);
+  // }
 
   @override
   Future<void> insertNewUser(UserEntity user) async {
     var personDao = sqlDB.userDao;
 
     await personDao.insertNewUser(user);
+  }
+
+  @override
+  Future<UserEntity?> findUser(String username) {
+    final userDao = sqlDB.userDao;
+    return userDao.findUser(username);
   }
 }

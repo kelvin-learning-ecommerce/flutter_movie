@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:touchable_opacity/touchable_opacity.dart';
 
 class AppButton extends StatelessWidget {
   final String label;
@@ -9,13 +10,13 @@ class AppButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      onTap: (){
+    return TouchableOpacity(
+      onTap: () {
         function.call();
       },
       child: Container(
-        padding: REdgeInsets.symmetric(vertical: 16.h),
-        width: 150.w,
+          padding: REdgeInsets.symmetric(vertical: 16.h),
+          width: 150.w,
           decoration: BoxDecoration(
               borderRadius: BorderRadius.all(Radius.circular(12.r)),
               color: Colors.white,

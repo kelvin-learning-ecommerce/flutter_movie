@@ -1,0 +1,21 @@
+import 'package:equatable/equatable.dart';
+
+import '../../../domain/models/entity/user_entity.dart';
+import '../../../utils/enum/login_error_enum.dart';
+import '../../../utils/enum/register_error_enum.dart';
+
+abstract class ProfileState extends Equatable {
+  @override
+  List<Object?> get props => [];
+}
+
+class ProfileStateInit extends ProfileState {}
+
+class ProfileStateLogoutSuccess extends ProfileState {
+  ProfileStateLogoutSuccess();
+}
+
+class ProfileStateLoadSuccess extends ProfileState {
+  final UserEntity user;
+  ProfileStateLoadSuccess(this.user);
+}

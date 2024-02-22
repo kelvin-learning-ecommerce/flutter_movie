@@ -5,8 +5,6 @@ import 'package:magnus_flutter_kelvin_prayitno/domain/repositories/storage_repos
 import 'package:magnus_flutter_kelvin_prayitno/utils/enum/login_error_enum.dart';
 
 import '../../../config/router/navigation_config.dart';
-import '../../../domain/models/response/news_response.dart';
-import '../../../domain/repositories/api_repository.dart';
 import '../events/login_event.dart';
 import '../states/login_state.dart';
 
@@ -25,12 +23,13 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
       emit(LoginStateLoading());
 
       var q = floorRepo.findUser(event.username);
-      var res = await q.first;
+      var res = await q;
 
       if (res == null) {
         emit(LoginStateError(LoginError.userNotFound));
       } else if (event.password == res.password) {
         storageRepository.storeIsLogin(true);
+        storageRepository.storeLoggedInUsername(event.username);
         emit(LoginStateSuccess());
       } else {
         emit(LoginStateError(LoginError.userWrongCredential));

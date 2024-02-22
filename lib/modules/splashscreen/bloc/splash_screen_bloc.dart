@@ -24,7 +24,7 @@ class SplashScreenBloc extends Bloc<SplashScreenEvent, SplashScreenState> {
 
     on<SplashScreenCheckMagnusAccountEvent>((event, emit) async {
       var checkMagnusAccount = floorRepo.findUser("magnus");
-      var res = await checkMagnusAccount.first;
+      var res = await checkMagnusAccount;
       if (res == null) {
         await floorRepo.insertNewUser(UserEntity(
           name: "magnus",

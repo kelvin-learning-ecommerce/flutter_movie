@@ -39,6 +39,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "register_label": MessageLookupByLibrary.simpleMessage("Register"),
         "register_success_label":
             MessageLookupByLibrary.simpleMessage("Register Success"),
+        "user_not_available_error":
+            MessageLookupByLibrary.simpleMessage("Username unavailable"),
         "user_not_found_error":
             MessageLookupByLibrary.simpleMessage("User not found"),
         "username_label": MessageLookupByLibrary.simpleMessage("Username")

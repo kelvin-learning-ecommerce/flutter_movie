@@ -1,0 +1,3 @@
+enum NewsError{
+  emptyQuery, noResult
+}

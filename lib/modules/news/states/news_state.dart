@@ -1,5 +1,6 @@
 import 'package:equatable/equatable.dart';
 import 'package:magnus_flutter_kelvin_prayitno/domain/models/response/news_response.dart';
+import 'package:magnus_flutter_kelvin_prayitno/utils/enum/news_enum.dart';
 
 import '../events/news_event.dart';
 
@@ -14,7 +15,7 @@ class NewsStateInit extends NewsState {}
 class NewsStateLoading extends NewsState {}
 
 class NewsStateError extends NewsState {
-  final String error;
+  final NewsError error;
 
   NewsStateError({required this.error});
 }

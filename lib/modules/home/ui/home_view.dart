@@ -36,32 +36,34 @@ class _HomeViewState extends State<HomeView> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.white,
-      appBar: appBar(title: getTitle(context, _selectedIndex)),
-      bottomNavigationBar: BottomNavigationBar(
-        items: <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: const Icon(Icons.home),
-            label: S.of(context).home_title,
-          ),
-          BottomNavigationBarItem(
-            icon: const Icon(Icons.newspaper),
-            label: S.of(context).news_title,
-          ),
-          BottomNavigationBarItem(
-            icon: const Icon(Icons.people),
-            label: S.of(context).profile_tab_title,
-          ),
-        ],
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: Colors.white,
+        appBar: appBar(title: getTitle(context, _selectedIndex)),
+        bottomNavigationBar: BottomNavigationBar(
+          items: <BottomNavigationBarItem>[
+            BottomNavigationBarItem(
+              icon: const Icon(Icons.home),
+              label: S.of(context).home_title,
+            ),
+            BottomNavigationBarItem(
+              icon: const Icon(Icons.newspaper),
+              label: S.of(context).news_title,
+            ),
+            BottomNavigationBarItem(
+              icon: const Icon(Icons.people),
+              label: S.of(context).profile_tab_title,
+            ),
+          ],
 
-        currentIndex: _selectedIndex, //New
-        onTap: _onItemTapped,
-      ),
-      body: PageView(
-        controller: _pageController,
-        physics: const NeverScrollableScrollPhysics(),
-        children: _pages,
+          currentIndex: _selectedIndex, //New
+          onTap: _onItemTapped,
+        ),
+        body: PageView(
+          controller: _pageController,
+          physics: const NeverScrollableScrollPhysics(),
+          children: _pages,
+        ),
       ),
     );
   }

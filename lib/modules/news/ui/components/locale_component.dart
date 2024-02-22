@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:touchable_opacity/touchable_opacity.dart';
 
 import '../../../../utils/constants/image_path.dart';
 import '../../../locale/bloc/locale_bloc.dart';
@@ -14,7 +15,7 @@ class LocaleComponent extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: REdgeInsets.all(10),
-      child: InkWell(
+      child: TouchableOpacity(
         key: const Key("changeLanguageButton"),
         onTap: () {
           localeBloc?.add(const LocaleChangeLangEvent());
@@ -29,7 +30,7 @@ class LocaleComponent extends StatelessWidget {
                   width: 20.w,
                   height: 20.h,
                 );
-              }else {
+              } else {
                 return Image.asset(
                   idIc,
                   width: 20.w,

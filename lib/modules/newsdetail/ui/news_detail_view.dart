@@ -11,37 +11,23 @@ import '../events/news_detail_event.dart';
 import 'news_detail_view_ext.dart';
 
 class NewsDetailView extends StatefulWidget {
-  const NewsDetailView({Key? key, this.args}) : super(key: key);
+  const NewsDetailView({Key? key, required this.args}) : super(key: key);
 
-  final dynamic args;
+  final NewsArticles args;
 
   @override
   State<NewsDetailView> createState() => _NewsDetailViewState();
 }
 
 class _NewsDetailViewState extends State<NewsDetailView> {
-  NewsArticles? args;
-
-  @override
-  void initState() {
-    super.initState();
-
-    Map<String, dynamic> someMap = {
-      "title": "0",
-      "id": 2,
-    };
-
-    args = NewsArticles.fromJson(widget.args ?? someMap);
-
-    // Future.delayed(Duration.zero, () => newsDetailBloc?.add(GameDetailEventFetch(args?.id ?? 0)));
-  }
-
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.white,
-      body: GameDetailBody(
-        data: args,
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: Colors.white,
+        body: GameDetailBody(
+          data: widget.args,
+        ),
       ),
     );
   }

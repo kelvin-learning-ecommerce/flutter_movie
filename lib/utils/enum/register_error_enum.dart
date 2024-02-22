@@ -1,3 +1,3 @@
 enum RegisterError{
-  passwordError, nameError, usernameError, phoneNoError
+  passwordError, nameError, usernameError, phoneNoError, usernameFoundError
 }

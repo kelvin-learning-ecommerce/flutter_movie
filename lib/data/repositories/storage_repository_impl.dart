@@ -1,4 +1,3 @@
-
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:injectable/injectable.dart';
 import 'package:magnus_flutter_kelvin_prayitno/domain/repositories/storage_repository.dart';
@@ -22,4 +21,13 @@ class StorageRepositoryImpl implements StorageRepository {
   Future<void> storeIsLogin(bool isLogin) async {
     return await secureStorage.write(key: isLoginKey, value: isLogin.toString());
   }
+
+  @override
+  Future<void> storeLoggedInUsername(String username) async =>
+      await secureStorage.write(key: loggedInUsernameKey, value: username);
+
+  @override
+  Future<String?> fetchLoggedInUsername() async {
+    return await secureStorage.read(key: loggedInUsernameKey);
+    }
 }

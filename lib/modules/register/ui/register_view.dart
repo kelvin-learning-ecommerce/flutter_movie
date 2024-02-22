@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:magnus_flutter_kelvin_prayitno/config/router/navigation_config.dart';
 import 'package:magnus_flutter_kelvin_prayitno/modules/login/bloc/login_bloc.dart';
 import 'package:magnus_flutter_kelvin_prayitno/modules/login/events/login_event.dart';
 import 'package:magnus_flutter_kelvin_prayitno/modules/register/bloc/register_bloc.dart';
@@ -23,7 +24,7 @@ class RegisterView extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: appBar(
-        title: S.of(context).login_title,
+        title: S.of(context).register_label,
       ),
       body: const RegisterScreen(),
     );
@@ -54,7 +55,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
       listener: (context, state) {
         if (state is RegisterStateSuccess) {
           showSnackBar(context, S.of(context).register_success_label);
+          Navigator.pop(context);
         } else if (state is RegisterStateError) {
+          print(state.error);
           setState(() {
             if (state.error == RegisterError.nameError) {
               nameError = "${S.of(context).name_label} ${S.of(context).empty_label}";
@@ -64,58 +67,63 @@ class _RegisterScreenState extends State<RegisterScreen> {
               usernameError = "${S.of(context).username_label} ${S.of(context).empty_label}";
             } else if (state.error == RegisterError.passwordError) {
               passwordError = "${S.of(context).password_label} ${S.of(context).empty_label}";
+            } else if (state.error == RegisterError.usernameFoundError) {
+              usernameError = S.of(context).user_not_available_error;
             }
           });
         }
       },
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        key: const Key(""),
-        children: [
-          CustomTextField(
-            controller: nameController,
-            labelText: S.of(context).name_label,
-            errorMessage: nameError,
-          ),
-          CustomTextField(
-            controller: phonenoController,
-            labelText: S.of(context).phoneno_label,
-            errorMessage: phoneNoError,
-            textInputType: TextInputType.phone,
-          ),
-          CustomTextField(
-            controller: usernameController,
-            labelText: S.of(context).username_label,
-            errorMessage: usernameError,
-          ),
-          CustomTextField(
-            controller: passwordController,
-            labelText: S.of(context).password_label,
-            isPassword: true,
-            errorMessage: passwordError,
-          ),
-          SizedBox(
-            height: 20.h,
-          ),
-          AppButton(
-            label: S.of(context).register_label,
-            function: () {
-              setState(() {
-                usernameError = null;
-                passwordError = null;
-                nameError = null;
-                phoneNoError = null;
-              });
+      child: SingleChildScrollView(
+        padding: REdgeInsets.only(top: 50.h),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          key: const Key(""),
+          children: [
+            CustomTextField(
+              controller: nameController,
+              labelText: S.of(context).name_label,
+              errorMessage: nameError,
+            ),
+            CustomTextField(
+              controller: phonenoController,
+              labelText: S.of(context).phoneno_label,
+              errorMessage: phoneNoError,
+              textInputType: TextInputType.phone,
+            ),
+            CustomTextField(
+              controller: usernameController,
+              labelText: S.of(context).username_label,
+              errorMessage: usernameError,
+            ),
+            CustomTextField(
+              controller: passwordController,
+              labelText: S.of(context).password_label,
+              isPassword: true,
+              errorMessage: passwordError,
+            ),
+            SizedBox(
+              height: 20.h,
+            ),
+            AppButton(
+              label: S.of(context).register_label,
+              function: () {
+                setState(() {
+                  usernameError = null;
+                  passwordError = null;
+                  nameError = null;
+                  phoneNoError = null;
+                });
 
-              registerBloc?.add(RegisterAttemptEvent(
-                usernameController.text,
-                passwordController.text,
-                nameController.text,
-                phonenoController.text,
-              ));
-            },
-          ),
-        ],
+                registerBloc?.add(RegisterAttemptEvent(
+                  usernameController.text,
+                  passwordController.text,
+                  nameController.text,
+                  phonenoController.text,
+                ));
+              },
+            ),
+          ],
+        ),
       ),
     );
   }

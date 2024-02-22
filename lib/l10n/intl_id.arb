@@ -13,5 +13,6 @@
   "empty_label": "Kosong",
   "register_success_label": "Daftar Berhasil",
   "user_not_found_error": "User tidak ditemukan",
-  "check_login_data_error": "Cek kembali data login anda"
+  "check_login_data_error": "Cek kembali data login anda",
+  "user_not_available_error": "Username tidak tersedia"
 }

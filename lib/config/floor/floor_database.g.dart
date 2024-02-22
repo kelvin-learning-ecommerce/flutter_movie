@@ -103,7 +103,7 @@ class _$UserDao extends UserDao {
   _$UserDao(
     this.database,
     this.changeListener,
-  )   : _queryAdapter = QueryAdapter(database, changeListener),
+  )   : _queryAdapter = QueryAdapter(database),
         _userEntityInsertionAdapter = InsertionAdapter(
             database,
             'user_table',
@@ -113,8 +113,7 @@ class _$UserDao extends UserDao {
                   'password': item.password,
                   'phoneNo': item.phoneNo,
                   'name': item.name
-                },
-            changeListener);
+                });
 
   final sqflite.DatabaseExecutor database;
 
@@ -125,17 +124,15 @@ class _$UserDao extends UserDao {
   final InsertionAdapter<UserEntity> _userEntityInsertionAdapter;
 
   @override
-  Stream<UserEntity?> findUser(String username) {
-    return _queryAdapter.queryStream('SELECT * FROM Person WHERE username = ?1',
+  Future<UserEntity?> findUser(String username) async {
+    return _queryAdapter.query('SELECT * FROM user_table WHERE username = ?1',
         mapper: (Map<String, Object?> row) => UserEntity(
             id: row['id'] as int?,
             name: row['name'] as String,
             password: row['password'] as String,
             username: row['username'] as String,
             phoneNo: row['phoneNo'] as String),
-        arguments: [username],
-        queryableName: 'Person',
-        isView: false);
+        arguments: [username]);
   }
 
   @override

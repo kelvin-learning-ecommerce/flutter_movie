@@ -199,6 +199,16 @@ class S {
       args: [],
     );
   }
+
+  /// `Username unavailable`
+  String get user_not_available_error {
+    return Intl.message(
+      'Username unavailable',
+      name: 'user_not_available_error',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
