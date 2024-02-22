@@ -6,13 +6,14 @@ class CustomTextField extends StatefulWidget {
   final bool isPassword;
   final String labelText;
   final String? errorMessage;
+  final TextInputType? textInputType;
 
   const CustomTextField(
       {Key? key,
       required this.controller,
       this.isPassword = false,
       required this.labelText,
-      this.errorMessage})
+      this.errorMessage, this.textInputType})
       : super(key: key);
 
   @override
@@ -29,6 +30,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
         width: 200.w,
         margin: REdgeInsets.only(bottom: 12.h),
         child: TextFormField(
+          keyboardType: widget.textInputType ?? TextInputType.name,
           controller: widget.controller,
           cursorColor: Colors.black,
           maxLength: 20,
@@ -52,7 +54,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
                     },
                   )
                 : null,
-            enabledBorder: UnderlineInputBorder(
+            enabledBorder: const UnderlineInputBorder(
               borderSide: BorderSide(color: Color(0xFF6200EE)),
             ),
           ),

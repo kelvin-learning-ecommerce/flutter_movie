@@ -60,6 +60,16 @@ class S {
     );
   }
 
+  /// `Register`
+  String get register_label {
+    return Intl.message(
+      'Register',
+      name: 'register_label',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `News`
   String get news_title {
     return Intl.message(
@@ -105,6 +115,86 @@ class S {
     return Intl.message(
       'Game data Not Available',
       name: 'game_detail_unavailable',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Username`
+  String get username_label {
+    return Intl.message(
+      'Username',
+      name: 'username_label',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Password`
+  String get password_label {
+    return Intl.message(
+      'Password',
+      name: 'password_label',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Name`
+  String get name_label {
+    return Intl.message(
+      'Name',
+      name: 'name_label',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Phone No`
+  String get phoneno_label {
+    return Intl.message(
+      'Phone No',
+      name: 'phoneno_label',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Empty`
+  String get empty_label {
+    return Intl.message(
+      'Empty',
+      name: 'empty_label',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Register Success`
+  String get register_success_label {
+    return Intl.message(
+      'Register Success',
+      name: 'register_success_label',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `User not found`
+  String get user_not_found_error {
+    return Intl.message(
+      'User not found',
+      name: 'user_not_found_error',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please check your login data`
+  String get check_login_data_error {
+    return Intl.message(
+      'Please check your login data',
+      name: 'check_login_data_error',
       desc: '',
       args: [],
     );

@@ -53,7 +53,9 @@ class _LoginScreenState extends State<LoginScreen> {
           context.goToHome();
         } else if (state is LoginStateError) {
           setState(() {
-            errorMessage = state.error == LoginError.userNotFound ? "User not found" : "Please check your login data";
+            errorMessage = state.error == LoginError.userNotFound
+                ? S.of(context).user_not_found_error
+                : S.of(context).check_login_data_error;
           });
         }
       },
@@ -63,19 +65,19 @@ class _LoginScreenState extends State<LoginScreen> {
         children: [
           CustomTextField(
             controller: usernameController,
-            labelText: "Username",
+            labelText: S.of(context).username_label,
             errorMessage: errorMessage,
           ),
           CustomTextField(
             controller: passwordController,
-            labelText: "Password",
+            labelText: S.of(context).password_label,
             isPassword: true,
           ),
           SizedBox(
             height: 20.h,
           ),
           AppButton(
-            label: "Login",
+            label: S.of(context).login_title,
             function: () {
               setState(() {
                 errorMessage = null;
@@ -88,7 +90,7 @@ class _LoginScreenState extends State<LoginScreen> {
             height: 10.h,
           ),
           AppButton(
-            label: "Register",
+            label: S.of(context).register_label,
             function: () {},
           )
         ],

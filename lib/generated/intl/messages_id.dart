@@ -22,13 +22,25 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "check_login_data_error":
+            MessageLookupByLibrary.simpleMessage("Cek kembali data login anda"),
+        "empty_label": MessageLookupByLibrary.simpleMessage("Kosong"),
         "game_detail_unavailable": MessageLookupByLibrary.simpleMessage(
             "Informasi game tidak tersedia"),
         "home_title": MessageLookupByLibrary.simpleMessage("Beranda"),
         "image_unavailable":
             MessageLookupByLibrary.simpleMessage("Gambar tidak tersedia"),
         "login_title": MessageLookupByLibrary.simpleMessage("Masuk"),
+        "name_label": MessageLookupByLibrary.simpleMessage("Nama"),
         "news_title": MessageLookupByLibrary.simpleMessage("Berita"),
-        "profile_tab_title": MessageLookupByLibrary.simpleMessage("Profil")
+        "password_label": MessageLookupByLibrary.simpleMessage("Kata Sandi"),
+        "phoneno_label": MessageLookupByLibrary.simpleMessage("Nomor Telepon"),
+        "profile_tab_title": MessageLookupByLibrary.simpleMessage("Profil"),
+        "register_label": MessageLookupByLibrary.simpleMessage("Daftar"),
+        "register_success_label":
+            MessageLookupByLibrary.simpleMessage("Daftar Berhasil"),
+        "user_not_found_error":
+            MessageLookupByLibrary.simpleMessage("User tidak ditemukan"),
+        "username_label": MessageLookupByLibrary.simpleMessage("Username")
       };
 }

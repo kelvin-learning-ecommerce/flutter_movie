@@ -1,8 +1,17 @@
 {
   "login_title": "Masuk",
+  "register_label": "Daftar",
   "news_title": "Berita",
   "home_title": "Beranda",
   "profile_tab_title": "Profil",
   "image_unavailable": "Gambar tidak tersedia",
-  "game_detail_unavailable": "Informasi game tidak tersedia"
+  "game_detail_unavailable": "Informasi game tidak tersedia",
+  "username_label": "Username",
+  "password_label": "Kata Sandi",
+  "name_label": "Nama",
+  "phoneno_label": "Nomor Telepon",
+  "empty_label": "Kosong",
+  "register_success_label": "Daftar Berhasil",
+  "user_not_found_error": "User tidak ditemukan",
+  "check_login_data_error": "Cek kembali data login anda"
 }
