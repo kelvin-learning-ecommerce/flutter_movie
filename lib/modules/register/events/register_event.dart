@@ -14,3 +14,11 @@ class RegisterAttemptEvent extends RegisterEvent {
   final String phoneno;
   const RegisterAttemptEvent(this.username, this.password, this.name, this.phoneno);
 }
+
+class RegisterNewUserEvent extends RegisterEvent {
+  final String username;
+  final String password;
+  final String name;
+  final String phoneno;
+  const RegisterNewUserEvent(this.username, this.password, this.name, this.phoneno);
+}

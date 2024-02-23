@@ -18,41 +18,6 @@ Widget listviewLayout(ScrollController scrollController, List<NewsArticles> resu
           item,
           key: Key("Game List Content GridView Component InkWell - $index"),
         );
-        //   InkWell(
-        //   key: Key("Game List Content Component InkWell - $index"),
-        //   onTap: () => context.goToDetail(item),
-        //   child: Container(
-        //     margin: REdgeInsets.all(10),
-        //     padding: REdgeInsets.only(top: 10),
-        //     decoration: BoxDecoration(border: Border.all(color: Colors.blueAccent)),
-        //     child: Column(
-        //       mainAxisAlignment: MainAxisAlignment.center,
-        //       children: [
-        //         AppCachedNetworkImage(
-        //           height: 75.h,
-        //           width: 150.w,
-        //           fit: BoxFit.contain,
-        //           url: item.urlToImage ?? '',
-        //         ),
-        //         const SizedBox(
-        //           height: 10,
-        //         ),
-        //         Text("Name: ${item.title}"),
-        //         const SizedBox(
-        //           height: 10,
-        //         ),
-        //         Text('Released date: ${item.publishedAt}'),
-        //         const SizedBox(
-        //           height: 10,
-        //         ),
-        //         Text("Metacritic Score : ${item.description}"),
-        //         const SizedBox(
-        //           height: 10,
-        //         ),
-        //       ],
-        //     ),
-        //   ),
-        // );
       },
       separatorBuilder: (context, index) => const Divider(
             height: 2,

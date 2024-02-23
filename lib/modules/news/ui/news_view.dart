@@ -56,7 +56,7 @@ class _NewsListScreenState extends State<NewsListScreen> {
 
     scrollController.addListener(() {
       if (scrollController.position.maxScrollExtent == scrollController.position.pixels) {
-        newsBloc?.add(const NewsFetchEvent(false));
+        newsBloc?.add(NewsFetchEvent(false, query: searchController.text));
       }
     });
   }

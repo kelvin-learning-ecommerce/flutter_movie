@@ -54,6 +54,12 @@ class _RegisterScreenState extends State<RegisterScreen> {
       listenWhen: (prevState, currState) => currState is RegisterStateSuccess || currState is RegisterStateError,
       listener: (context, state) {
         if (state is RegisterStateSuccess) {
+          registerBloc?.add(RegisterNewUserEvent(
+            usernameController.text,
+            passwordController.text,
+            nameController.text,
+            phonenoController.text,
+          ));
           showSnackBar(context, S.of(context).register_success_label);
           Navigator.pop(context);
         } else if (state is RegisterStateError) {

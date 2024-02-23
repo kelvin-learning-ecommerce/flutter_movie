@@ -42,6 +42,8 @@ class NewsContentComponent extends StatelessWidget {
   String errorMessage(NewsError err) {
     if (err == NewsError.noResult) {
       return "No News Found";
+    }else if (err == NewsError.other) {
+      return "Please try again";
     } else {
       return "Please input search";
     }

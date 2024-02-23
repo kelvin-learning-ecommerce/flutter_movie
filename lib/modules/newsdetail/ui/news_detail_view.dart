@@ -78,7 +78,7 @@ class _GameDetailBodyState extends State<GameDetailBody> with TickerProviderStat
                 unselectedLabelColor: Colors.grey,
                 tabs: const [
                   Tab(icon: Icon(Icons.info), text: "Info"),
-                  Tab(icon: Icon(Icons.screen_lock_portrait), text: "Screenshot"),
+                  Tab(icon: Icon(Icons.link), text: "Link"),
                 ],
                 onTap: (pos) {
                   newsDetailBloc?.add(NewsDetailTabEvent(pos));
@@ -100,7 +100,7 @@ class _GameDetailBodyState extends State<GameDetailBody> with TickerProviderStat
                 detail: widget.data,
               );
             } else {
-              return ScreenshotTab(detail: widget.data);
+              return LinkTab(detail: widget.data);
             }
           }
           return Container();

@@ -25,6 +25,7 @@ class ApiServiceImpl implements ApiService {
         "q": q,
         "apikey": "92a2a1bb14fa45bf813474bf76f49355",
         "page": page,
+        "pageSize": 10,
       });
 
       return response?.data;

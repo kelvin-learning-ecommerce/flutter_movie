@@ -38,7 +38,7 @@ class NewsBloc extends Bloc<NewsEvent, NewsState> {
           try {
             var response = await apiRepository.fetchNews(q: q, page: page);
 
-            if ((response.articles ?? []).isEmpty) {
+            if ((response.articles ?? []).isEmpty && result.isEmpty) {
               emit(NewsStateError(error: NewsError.noResult));
             }else{
               result.addAll(response.articles ?? []);

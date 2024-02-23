@@ -1,4 +1,4 @@
-# 99Group Flutter Coding Challenge
+# Magnus Project Challenge by Kelvin Prayitno
 
 ## Getting Started
 
@@ -11,7 +11,7 @@ flutter used for develop is v3.10.0
 To generate key (only needed to release to Play Store):
 
     cd android/app/
-    keytool -genkey -alias 99groupAlias -keyalg RSA -keystore keystore.jks -dname "CN=99group Coding Challenge, OU=99group Coding Challenge, O=99group, L=Jakarta, S=Jakarta, C=ID" -storepass 99groupKeystorePass -keypass 99groupKeystorePass -deststoretype pkcs12 -keysize 4096 -validity 20000
+    keytool -genkey -alias 99groupAlias -keyalg RSA -keystore keystore.jks -dname "CN=Magnus Coding Challenge, OU=Magnus Coding Challenge, O=Magnus, L=Jakarta, S=Jakarta, C=ID" -storepass keystorePass -keypass keystorePass -deststoretype pkcs12 -keysize 4096 -validity 20000
 
 create `key.properties` in the android root path:
 
@@ -33,9 +33,13 @@ to update app icon
 
     flutter pub run flutter_launcher_icons:main
 
-to run flutter test
+to run flutter test & generate 
 
-    flutter test
+    flutter test --coverage
+
+to check Code Coverage 
+
+    flutter pub global run test_cov_console
 
 ## Run
 
@@ -72,9 +76,13 @@ Production flavor (App Archive):
 
 ## Modules:
 
-* Game List
-* Game Details
-* Locale
+* Splash Screen
+* Login
+* Register
+* Home
+* News List
+* News Detail
+* Profile
 
 ### Libraries & Tools Used
 
@@ -115,21 +123,10 @@ Now, lets dive into the lib folder which has the main code for the application.
 2- DI - Contains dependency config.
 3- generated - Contain generated localization.
 4- li0n — Contain localized wording.
-5- umodule — Contains main module (view, event, state, bloc, model).
+5- module — Contains main module (view, event, state, bloc, model).
 6- network — Contain Networking config.
 7- utils — Contains helper class.
 8- main.dart, init_app.dart, main_dev.dart, main_prod.dart - Setup env config.
-
-### Codemagic info
-    email: 99group.coding.challenge@gmail.com
-    password: 99Gpass!23
-
-    triggered on new tag creation
-    watched tag pattern:
-    *.prod
-    *-prod
-    *-build
-    *.build
 
 ### Routes
 
@@ -144,9 +141,3 @@ Now, lets dive into the lib folder which has the main code for the application.
 <img width="801" alt="Screen Shot 2024-02-13 at 16 50 27" src="https://github.com/99groupcodingchallenge/99group-flutter-coding-challenge/assets/38200290/f0d425b1-814d-4687-94ba-080061fac76e">
 <img width="801" alt="Screen Shot 2024-02-13 at 16 51 07" src="https://github.com/99groupcodingchallenge/99group-flutter-coding-challenge/assets/38200290/420e462c-1694-452e-a342-8d3dc08151b8">
 <img width="801" alt="Screen Shot 2024-02-13 at 16 50 05" src="https://github.com/99groupcodingchallenge/99group-flutter-coding-challenge/assets/38200290/4dff3b2e-7c2b-4c1b-9c0e-0ccbfd700334">
-
-flutter build apk -t lib/main_dev.dart --flavor development --release --obfuscate --split-debug-info=build/debug-info
-flutter symbolize -i stack_trace_file -d build/debug-info/app.android-arm64.symbols
-
-ke baik terima kasih atas jawabannya.
-Saya mau lanjut tanya beberapa pertanyaan ya mas:

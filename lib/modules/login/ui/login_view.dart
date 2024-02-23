@@ -61,14 +61,15 @@ class _LoginScreenState extends State<LoginScreen> {
       },
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
-        key: const Key(""),
         children: [
           CustomTextField(
+            key: const Key("Login-CustomTextField-Username"),
             controller: usernameController,
             labelText: S.of(context).username_label,
             errorMessage: errorMessage,
           ),
           CustomTextField(
+            key: const Key("Login-CustomTextField-Password"),
             controller: passwordController,
             labelText: S.of(context).password_label,
             isPassword: true,

@@ -43,8 +43,7 @@ void main() {
 
   blocTest<RegisterBloc, RegisterState>("Test Register Bloc Success State",
       build: () {
-        when(() => mockFloorRepository.findUser(userEntity.username)).thenAnswer((_) async => null);
-        when(() => mockFloorRepository.insertNewUser(userEntity)).thenAnswer((_) async => Future.value());
+        when(() => mockFloorRepository.findUser("kelvin")).thenAnswer((_) async => null);
 
         return registerBloc;
       },

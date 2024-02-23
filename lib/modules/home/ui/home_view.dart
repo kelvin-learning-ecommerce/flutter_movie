@@ -38,6 +38,7 @@ class _HomeViewState extends State<HomeView> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        key: const Key("Home-parent-Scaffold"),
         backgroundColor: Colors.white,
         appBar: appBar(title: getTitle(context, _selectedIndex)),
         bottomNavigationBar: BottomNavigationBar(

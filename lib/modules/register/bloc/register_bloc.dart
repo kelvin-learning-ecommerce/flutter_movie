@@ -20,6 +20,15 @@ class RegisterBloc extends Bloc<RegisterEvent, RegisterState> {
   bool isLoading = false;
 
   RegisterBloc(this.floorRepo) : super(RegisterStateInit()) {
+    on<RegisterNewUserEvent>((event, emit) async {
+      await floorRepo.insertNewUser(UserEntity(
+        name: event.name,
+        password: event.password,
+        username: event.username,
+        phoneNo: event.phoneno,
+      ));
+    });
+
     on<RegisterAttemptEvent>((event, emit) async {
       emit(RegisterStateInit());
       if (event.name.isEmpty) {
@@ -35,12 +44,6 @@ class RegisterBloc extends Bloc<RegisterEvent, RegisterState> {
         var res = await q;
 
         if (res == null) {
-          await floorRepo.insertNewUser(UserEntity(
-            name: event.name,
-            password: event.password,
-            username: event.username,
-            phoneNo: event.phoneno,
-          ));
           emit(RegisterStateSuccess());
         } else {
           emit(RegisterStateError(RegisterError.usernameFoundError));
