@@ -27,12 +27,14 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
 
       if (res == null) {
         emit(LoginStateError(LoginError.userNotFound));
-      } else if (event.password == res.password) {
-        storageRepository.storeIsLogin(true);
-        storageRepository.storeLoggedInUsername(event.username);
-        emit(LoginStateSuccess());
       } else {
-        emit(LoginStateError(LoginError.userWrongCredential));
+        if (event.password == res.password) {
+          storageRepository.storeIsLogin(true);
+          storageRepository.storeLoggedInUsername(event.username);
+          emit(LoginStateSuccess());
+        } else {
+          emit(LoginStateError(LoginError.userWrongCredential));
+        }
       }
     });
   }

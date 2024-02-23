@@ -15,12 +15,11 @@ var registerBloc = navigationService.navigatorKey.currentContext?.read<RegisterB
 @injectable
 class RegisterBloc extends Bloc<RegisterEvent, RegisterState> {
   final FloorRepository floorRepo;
-  final StorageRepository storageRepository;
 
   int page = 1;
   bool isLoading = false;
 
-  RegisterBloc(this.floorRepo, this.storageRepository) : super(RegisterStateInit()) {
+  RegisterBloc(this.floorRepo) : super(RegisterStateInit()) {
     on<RegisterAttemptEvent>((event, emit) async {
       emit(RegisterStateInit());
       if (event.name.isEmpty) {
@@ -43,11 +42,9 @@ class RegisterBloc extends Bloc<RegisterEvent, RegisterState> {
             phoneNo: event.phoneno,
           ));
           emit(RegisterStateSuccess());
-        }else{
+        } else {
           emit(RegisterStateError(RegisterError.usernameFoundError));
         }
-
-
       }
     });
   }

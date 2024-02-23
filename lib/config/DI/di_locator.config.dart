@@ -20,31 +20,31 @@ import 'package:magnus_flutter_kelvin_prayitno/config/floor/floor_database.dart'
 import 'package:magnus_flutter_kelvin_prayitno/config/router/navigation_config.dart'
     as _i8;
 import 'package:magnus_flutter_kelvin_prayitno/data/repositories/api_repository_impl.dart'
-    as _i17;
+    as _i18;
 import 'package:magnus_flutter_kelvin_prayitno/data/repositories/base/api_service.dart'
-    as _i11;
+    as _i13;
 import 'package:magnus_flutter_kelvin_prayitno/data/repositories/floor_repository_impl.dart'
     as _i6;
 import 'package:magnus_flutter_kelvin_prayitno/data/repositories/storage_repository_impl.dart'
-    as _i10;
+    as _i12;
 import 'package:magnus_flutter_kelvin_prayitno/domain/repositories/api_repository.dart'
-    as _i16;
+    as _i17;
 import 'package:magnus_flutter_kelvin_prayitno/domain/repositories/floor_repository.dart'
     as _i5;
 import 'package:magnus_flutter_kelvin_prayitno/domain/repositories/storage_repository.dart'
-    as _i9;
+    as _i11;
 import 'package:magnus_flutter_kelvin_prayitno/modules/login/bloc/login_bloc.dart'
-    as _i12;
-import 'package:magnus_flutter_kelvin_prayitno/modules/news/bloc/news_bloc.dart'
-    as _i18;
-import 'package:magnus_flutter_kelvin_prayitno/modules/newsdetail/bloc/news_detail_bloc.dart'
-    as _i19;
-import 'package:magnus_flutter_kelvin_prayitno/modules/profile/bloc/profile_bloc.dart'
-    as _i13;
-import 'package:magnus_flutter_kelvin_prayitno/modules/register/bloc/register_bloc.dart'
     as _i14;
-import 'package:magnus_flutter_kelvin_prayitno/modules/splashscreen/bloc/splash_screen_bloc.dart'
+import 'package:magnus_flutter_kelvin_prayitno/modules/news/bloc/news_bloc.dart'
+    as _i19;
+import 'package:magnus_flutter_kelvin_prayitno/modules/newsdetail/bloc/news_detail_bloc.dart'
+    as _i9;
+import 'package:magnus_flutter_kelvin_prayitno/modules/profile/bloc/profile_bloc.dart'
     as _i15;
+import 'package:magnus_flutter_kelvin_prayitno/modules/register/bloc/register_bloc.dart'
+    as _i10;
+import 'package:magnus_flutter_kelvin_prayitno/modules/splashscreen/bloc/splash_screen_bloc.dart'
+    as _i16;
 
 extension GetItInjectableX on _i1.GetIt {
   // initializes the registration of main-scope dependencies inside of GetIt
@@ -67,30 +67,27 @@ extension GetItInjectableX on _i1.GetIt {
         () => _i6.FloorRepositoryImpl(sqlDB: gh<_i3.AppDatabase>()));
     gh.lazySingleton<_i7.FlutterSecureStorage>(() => appModule.secureStorage);
     gh.factory<_i8.NavigationService>(() => _i8.NavigationService());
-    gh.factory<_i9.StorageRepository>(() => _i10.StorageRepositoryImpl(
+    gh.factory<_i9.NewsDetailBloc>(() => _i9.NewsDetailBloc());
+    gh.factory<_i10.RegisterBloc>(
+        () => _i10.RegisterBloc(gh<_i5.FloorRepository>()));
+    gh.factory<_i11.StorageRepository>(() => _i12.StorageRepositoryImpl(
         secureStorage: gh<_i7.FlutterSecureStorage>()));
-    gh.factory<_i11.ApiService>(() => _i11.ApiServiceImpl(dio: gh<_i4.Dio>()));
-    gh.factory<_i12.LoginBloc>(() => _i12.LoginBloc(
+    gh.factory<_i13.ApiService>(() => _i13.ApiServiceImpl(dio: gh<_i4.Dio>()));
+    gh.factory<_i14.LoginBloc>(() => _i14.LoginBloc(
           gh<_i5.FloorRepository>(),
-          gh<_i9.StorageRepository>(),
+          gh<_i11.StorageRepository>(),
         ));
-    gh.factory<_i13.ProfileBloc>(() => _i13.ProfileBloc(
+    gh.factory<_i15.ProfileBloc>(() => _i15.ProfileBloc(
           gh<_i5.FloorRepository>(),
-          gh<_i9.StorageRepository>(),
+          gh<_i11.StorageRepository>(),
         ));
-    gh.factory<_i14.RegisterBloc>(() => _i14.RegisterBloc(
-          gh<_i5.FloorRepository>(),
-          gh<_i9.StorageRepository>(),
-        ));
-    gh.factory<_i15.SplashScreenBloc>(() => _i15.SplashScreenBloc(
-          gh<_i9.StorageRepository>(),
+    gh.factory<_i16.SplashScreenBloc>(() => _i16.SplashScreenBloc(
+          gh<_i11.StorageRepository>(),
           gh<_i5.FloorRepository>(),
         ));
-    gh.factory<_i16.ApiRepository>(
-        () => _i17.ApiRepositoryImpl(baseService: gh<_i11.ApiService>()));
-    gh.factory<_i18.NewsBloc>(() => _i18.NewsBloc(gh<_i16.ApiRepository>()));
-    gh.factory<_i19.NewsDetailBloc>(
-        () => _i19.NewsDetailBloc(gh<_i16.ApiRepository>()));
+    gh.factory<_i17.ApiRepository>(
+        () => _i18.ApiRepositoryImpl(baseService: gh<_i13.ApiService>()));
+    gh.factory<_i19.NewsBloc>(() => _i19.NewsBloc(gh<_i17.ApiRepository>()));
     return this;
   }
 }

@@ -12,9 +12,9 @@ import '../../modules/splashscreen/bloc/splash_screen_bloc.dart';
 var providerList = [
   BlocProvider<LoginBloc>(create: (_) => LoginBloc(locator(), locator())),
   BlocProvider<NewsBloc>(create: (_) => NewsBloc(locator())),
-  BlocProvider<NewsDetailBloc>(create: (_) => NewsDetailBloc(locator())),
+  BlocProvider<NewsDetailBloc>(create: (_) => NewsDetailBloc()),
   BlocProvider<LocaleBloc>(create: (_) => LocaleBloc()),
   BlocProvider<SplashScreenBloc>(create: (_) => SplashScreenBloc(locator(), locator())),
-  BlocProvider<RegisterBloc>(create: (_) => RegisterBloc(locator(), locator())),
+  BlocProvider<RegisterBloc>(create: (_) => RegisterBloc(locator())),
   BlocProvider<ProfileBloc>(create: (_) => ProfileBloc(locator(), locator())),
 ];
