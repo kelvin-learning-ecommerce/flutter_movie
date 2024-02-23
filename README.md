@@ -116,7 +116,6 @@ lib/
 |- main.dart
 |- main_dev.dart
 |- main_prod.dart
-<img width="775" alt="Screen Shot 2024-02-23 at 19 45 30" src="https://github.com/kelvin-learning-ecommerce/flutter-magnus-project-challenge-kelvin-prayitno/assets/129742660/daae6608-a00e-4e6a-a4df-0423507f0fae">
 
 Now, lets dive into the lib folder which has the main code for the application.
 
