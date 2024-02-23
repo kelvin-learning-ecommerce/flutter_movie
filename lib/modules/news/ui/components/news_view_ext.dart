@@ -8,7 +8,7 @@ import '../../../widgets/cached_network_image_utils.dart';
 
 Widget listviewLayout(ScrollController scrollController, List<NewsArticles> result) {
   return ListView.separated(
-      key: const Key("Game List Content Component ListView"),
+      key: const Key("News Content Component ListView"),
       controller: scrollController,
       shrinkWrap: true,
       itemBuilder: (context, index) {
@@ -16,7 +16,7 @@ Widget listviewLayout(ScrollController scrollController, List<NewsArticles> resu
         return newsItem(
           context,
           item,
-          key: Key("Game List Content GridView Component InkWell - $index"),
+          key: Key("News Content ListView Component InkWell - $index"),
         );
       },
       separatorBuilder: (context, index) => const Divider(
@@ -28,7 +28,7 @@ Widget listviewLayout(ScrollController scrollController, List<NewsArticles> resu
 
 Widget gridviewLayout(ScrollController scrollController, List<NewsArticles> result) {
   return GridView.builder(
-    key: const Key("Game List Content Component GridView"),
+    key: const Key("News Content Component GridView"),
     controller: scrollController,
     gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2, childAspectRatio: 0.75),
     itemBuilder: (context, index) {
@@ -36,7 +36,7 @@ Widget gridviewLayout(ScrollController scrollController, List<NewsArticles> resu
       return newsItem(
         context,
         item,
-        key: Key("Game List Content GridView Component InkWell - $index"),
+        key: Key("News Content GridView Component InkWell - $index"),
       );
     },
     shrinkWrap: true,
@@ -45,6 +45,7 @@ Widget gridviewLayout(ScrollController scrollController, List<NewsArticles> resu
 }
 
 Widget newsItem(BuildContext context, NewsArticles item, {Key? key}) => TouchableOpacity(
+      key: key,
       onTap: () => context.goToDetail(item),
       child: Container(
         margin: REdgeInsets.all(10),

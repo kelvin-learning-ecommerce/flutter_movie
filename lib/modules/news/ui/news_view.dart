@@ -64,7 +64,7 @@ class _NewsListScreenState extends State<NewsListScreen> {
   @override
   Widget build(BuildContext context) {
     return Column(
-      key: const Key("Game List Screen Parent Column"),
+      key: const Key("News-Parent Column"),
       children: [
         SearchTextField(
           controller: searchController,

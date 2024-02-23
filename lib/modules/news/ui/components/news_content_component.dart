@@ -33,7 +33,7 @@ class NewsContentComponent extends StatelessWidget {
         }
 
         return Container(
-          key: const Key("Game List Content Component State Not Found"),
+          key: const Key("News Content Component State Not Found"),
         );
       },
     );
