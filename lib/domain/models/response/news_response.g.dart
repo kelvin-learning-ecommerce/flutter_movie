@@ -12,11 +12,15 @@ NewsResponse _$NewsResponseFromJson(Map<String, dynamic> json) => NewsResponse(
       articles: (json['articles'] as List<dynamic>?)
           ?.map((e) => NewsArticles.fromJson(e as Map<String, dynamic>))
           .toList(),
+      code: json['code'] as String?,
+      message: json['message'] as String?,
     );
 
 Map<String, dynamic> _$NewsResponseToJson(NewsResponse instance) =>
     <String, dynamic>{
       'status': instance.status,
+      'code': instance.code,
+      'message': instance.message,
       'totalResults': instance.totalResults,
       'articles': instance.articles,
     };

@@ -5,9 +5,17 @@ part 'news_response.g.dart';
 
 @JsonSerializable()
 class NewsResponse extends Equatable {
-  const NewsResponse({this.status, this.totalResults, this.articles});
+  const NewsResponse({
+    this.status,
+    this.totalResults,
+    this.articles,
+    this.code,
+    this.message,
+  });
 
   final String? status;
+  final String? code;
+  final String? message;
   final int? totalResults;
   final List<NewsArticles>? articles;
 

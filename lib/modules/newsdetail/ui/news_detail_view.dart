@@ -18,6 +18,7 @@ class NewsDetailView extends StatefulWidget {
   @override
   State<NewsDetailView> createState() => _NewsDetailViewState();
 }
+//register, floor, paging, DI, navigation ny bottom tab bar, tipe listview, localize, language selection, test ny api & widget, bloc
 
 class _NewsDetailViewState extends State<NewsDetailView> {
   @override

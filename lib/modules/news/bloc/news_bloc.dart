@@ -24,34 +24,35 @@ class NewsBloc extends Bloc<NewsEvent, NewsState> {
       var q = event.query ?? "";
       if (q.isEmpty) {
         emit(NewsStateError(error: NewsError.emptyQuery));
-      }
+      } else {
         if (!isLoading) {
-        isLoading = true;
+          isLoading = true;
 
-        if (event.isFirstPage) {
-          emit(NewsStateLoading());
-          result.clear();
-        } else {
-          emit(NewsStateLoadMore());
-        }
-
-        try {
-          var response = await apiRepository.fetchNews(q: q, page: page);
-
-          if((response.articles ?? []).isEmpty){
-            emit(NewsStateError(error: NewsError.noResult));
+          if (event.isFirstPage) {
+            emit(NewsStateLoading());
+            result.clear();
+          } else {
+            emit(NewsStateLoadMore());
           }
 
-          result.addAll(response.articles ?? []);
+          try {
+            var response = await apiRepository.fetchNews(q: q, page: page);
 
-          emit(NewsStateSuccess(result: result, listLayout: listLayout));
+            if ((response.articles ?? []).isEmpty) {
+              emit(NewsStateError(error: NewsError.noResult));
+            }else{
+              result.addAll(response.articles ?? []);
 
-          page += 1;
-        } catch (e) {
-          emit(NewsStateError(error: NewsError.emptyQuery));
+              emit(NewsStateSuccess(result: result, listLayout: listLayout));
+
+              page += 1;
+            }
+          } catch (e) {
+            emit(NewsStateError(error: NewsError.other));
+          }
+
+          isLoading = false;
         }
-
-        isLoading = false;
       }
     });
 
