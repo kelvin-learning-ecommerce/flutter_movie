@@ -1,8 +1,6 @@
 import 'package:equatable/equatable.dart';
 
 import '../../../domain/models/entity/user_entity.dart';
-import '../../../utils/enum/login_error_enum.dart';
-import '../../../utils/enum/register_error_enum.dart';
 
 abstract class ProfileState extends Equatable {
   @override

@@ -1,15 +1,10 @@
 import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:magnus_flutter_kelvin_prayitno/domain/models/entity/user_entity.dart';
 import 'package:magnus_flutter_kelvin_prayitno/domain/repositories/floor_repository.dart';
 import 'package:magnus_flutter_kelvin_prayitno/domain/repositories/storage_repository.dart';
-import 'package:magnus_flutter_kelvin_prayitno/modules/register/bloc/register_bloc.dart';
-import 'package:magnus_flutter_kelvin_prayitno/modules/register/events/register_event.dart';
-import 'package:magnus_flutter_kelvin_prayitno/modules/register/states/register_state.dart';
 import 'package:magnus_flutter_kelvin_prayitno/modules/splashscreen/bloc/splash_screen_bloc.dart';
 import 'package:magnus_flutter_kelvin_prayitno/modules/splashscreen/events/splash_screen_event.dart';
 import 'package:magnus_flutter_kelvin_prayitno/modules/splashscreen/states/splash_screen_state.dart';
-import 'package:magnus_flutter_kelvin_prayitno/utils/enum/register_error_enum.dart';
 import 'package:mocktail/mocktail.dart';
 
 class MockFloorRepository extends Mock implements FloorRepository {}

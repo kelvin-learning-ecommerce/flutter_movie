@@ -2,9 +2,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
 import 'package:magnus_flutter_kelvin_prayitno/domain/models/entity/user_entity.dart';
 import 'package:magnus_flutter_kelvin_prayitno/domain/repositories/floor_repository.dart';
-import 'package:magnus_flutter_kelvin_prayitno/domain/repositories/storage_repository.dart';
 import 'package:magnus_flutter_kelvin_prayitno/modules/register/events/register_event.dart';
-import 'package:magnus_flutter_kelvin_prayitno/utils/enum/login_error_enum.dart';
 
 import '../../../config/router/navigation_config.dart';
 import '../../../utils/enum/register_error_enum.dart';

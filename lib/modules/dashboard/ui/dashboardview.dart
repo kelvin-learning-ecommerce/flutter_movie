@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../generated/l10n.dart';
-
 class DashboardView extends StatefulWidget {
   const DashboardView({Key? key}) : super(key: key);
 
@@ -21,7 +19,6 @@ class _DashboardViewState extends State<DashboardView> with AutomaticKeepAliveCl
         padding: REdgeInsets.all(12),
         decoration: BoxDecoration(border: Border.all(), borderRadius: BorderRadius.all(Radius.circular(12.r))),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             const Text(
               "Welcome to Magnus Test Project by Kelvin Prayitno",

@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../login/bloc/login_bloc.dart';
-import '../../../login/states/login_state.dart';
 import '../../bloc/news_bloc.dart';
 import '../../states/news_state.dart';
 

@@ -1,6 +1,4 @@
-
 import 'package:bloc_test/bloc_test.dart';
-import 'package:equatable/equatable.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:magnus_flutter_kelvin_prayitno/domain/models/entity/user_entity.dart';
 import 'package:magnus_flutter_kelvin_prayitno/domain/repositories/floor_repository.dart';
@@ -26,14 +24,9 @@ void main() {
     loginBloc = LoginBloc(mockFloorRepository, mockStorageRepository);
   });
 
-  // var newsErrorMessage = NewsResponse.fromJson(jsonDecode(newsErrorRaw));
-  // NewsResponse newsModel = NewsResponse.fromJson(jsonDecode(newsRawResponse));
-  // NewsResponse newsEmptyArticleModel = NewsResponse.fromJson(jsonDecode(newsEmptyArticleRawResponse));
-
   blocTest<LoginBloc, LoginState>("Test Login Bloc Success State",
       build: () {
-        when(() => mockFloorRepository.findUser("kelvin")).thenAnswer((_) async =>
-            Future.value(UserEntity(
+        when(() => mockFloorRepository.findUser("kelvin")).thenAnswer((_) async => Future.value(UserEntity(
               name: "kelvin",
               password: "kelvin",
               phoneNo: "123",
@@ -58,8 +51,7 @@ void main() {
 
   blocTest<LoginBloc, LoginState>("Test Login Bloc Error State - wrong password",
       build: () {
-        when(() => mockFloorRepository.findUser("kelvin")).thenAnswer((_) async =>
-            Future.value(UserEntity(
+        when(() => mockFloorRepository.findUser("kelvin")).thenAnswer((_) async => Future.value(UserEntity(
               name: "kelvin",
               password: "kelvin",
               phoneNo: "123",

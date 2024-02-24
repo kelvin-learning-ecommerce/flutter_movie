@@ -38,7 +38,11 @@ class ApiServiceImpl implements ApiService {
 Dio buildDio() {
   var dio = Dio();
 
-  dio.interceptors.add(DioInterceptors());
+  assert(() {
+    dio.interceptors.add(DioInterceptors());
+    return true;
+  }());
+
   dio.interceptors.add(NetworkInterceptors(dio));
 
   dio.options.baseUrl = Env.data.apiUrl;

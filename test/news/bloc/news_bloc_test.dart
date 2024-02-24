@@ -1,7 +1,6 @@
 import 'dart:convert';
 
 import 'package:bloc_test/bloc_test.dart';
-import 'package:dio/dio.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:magnus_flutter_kelvin_prayitno/domain/models/response/news_response.dart';

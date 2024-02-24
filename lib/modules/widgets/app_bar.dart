@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../../generated/l10n.dart';
 
 PreferredSizeWidget? appBar({required String title, bool showBackButton = false}) => AppBar(
       title: Text(title),

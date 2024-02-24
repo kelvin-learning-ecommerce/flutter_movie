@@ -1,14 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:magnus_flutter_kelvin_prayitno/config/router/navigation_config.dart';
-import 'package:magnus_flutter_kelvin_prayitno/modules/login/bloc/login_bloc.dart';
-import 'package:magnus_flutter_kelvin_prayitno/modules/login/events/login_event.dart';
 import 'package:magnus_flutter_kelvin_prayitno/modules/register/bloc/register_bloc.dart';
 import 'package:magnus_flutter_kelvin_prayitno/modules/widgets/custom_text_field.dart';
 import 'package:magnus_flutter_kelvin_prayitno/modules/widgets/app_bar.dart';
 import 'package:magnus_flutter_kelvin_prayitno/utils/enum/register_error_enum.dart';
-import 'package:magnus_flutter_kelvin_prayitno/utils/extensions/routes_ext.dart';
 
 import '../../../generated/l10n.dart';
 import '../../../utils/snakebar/snakebar_util.dart';
@@ -63,7 +59,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
           showSnackBar(context, S.of(context).register_success_label);
           Navigator.pop(context);
         } else if (state is RegisterStateError) {
-          print(state.error);
           setState(() {
             if (state.error == RegisterError.nameError) {
               nameError = "${S.of(context).name_label} ${S.of(context).empty_label}";

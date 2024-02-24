@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../utils/enum/news_enum.dart';
-import '../../../login/states/login_state.dart';
 import '../../bloc/news_bloc.dart';
 import '../../events/news_event.dart';
 import '../../states/news_state.dart';

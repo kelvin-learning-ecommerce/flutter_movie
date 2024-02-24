@@ -5,7 +5,6 @@ import 'package:magnus_flutter_kelvin_prayitno/domain/models/response/news_respo
 import 'package:magnus_flutter_kelvin_prayitno/modules/newsdetail/bloc/news_detail_bloc.dart';
 import 'package:magnus_flutter_kelvin_prayitno/modules/newsdetail/states/news_detail_state.dart';
 
-import '../../../generated/l10n.dart';
 import '../../widgets/cached_network_image_utils.dart';
 import '../events/news_detail_event.dart';
 import 'news_detail_view_ext.dart';
