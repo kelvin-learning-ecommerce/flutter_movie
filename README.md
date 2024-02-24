@@ -134,10 +134,15 @@ Now, lets dive into the lib folder which has the main code for the application.
 
 ### Flutter test code coverage screenshot
 
-* All Unit Test Success
-<img width="811" alt="Screen Shot 2024-02-13 at 16 49 49" src="https://github.com/99groupcodingchallenge/99group-flutter-coding-challenge/assets/38200290/1ad3f8c6-a191-4d3e-b380-353ef76edad9">
+* All Test Files Success
+ <img width="1384" alt="Screen Shot 2024-02-23 at 19 47 53" src="https://github.com/kelvin-learning-ecommerce/flutter-magnus-project-challenge-kelvin-prayitno/assets/129742660/1b987a3d-7ead-4a15-ae6b-3fa497fc3d60">
+
 
 * Code Coverage by Percentage
-<img width="801" alt="Screen Shot 2024-02-13 at 16 50 27" src="https://github.com/99groupcodingchallenge/99group-flutter-coding-challenge/assets/38200290/f0d425b1-814d-4687-94ba-080061fac76e">
-<img width="801" alt="Screen Shot 2024-02-13 at 16 51 07" src="https://github.com/99groupcodingchallenge/99group-flutter-coding-challenge/assets/38200290/420e462c-1694-452e-a342-8d3dc08151b8">
-<img width="801" alt="Screen Shot 2024-02-13 at 16 50 05" src="https://github.com/99groupcodingchallenge/99group-flutter-coding-challenge/assets/38200290/4dff3b2e-7c2b-4c1b-9c0e-0ccbfd700334">
+
+<img width="775" alt="Screen Shot 2024-02-23 at 19 45 12" src="https://github.com/kelvin-learning-ecommerce/flutter-magnus-project-challenge-kelvin-prayitno/assets/129742660/a06859b1-bbb7-4dd2-9aa1-8c4896fee10c">
+<img width="775" alt="Screen Shot 2024-02-23 at 19 45 25" src="https://github.com/kelvin-learning-ecommerce/flutter-magnus-project-challenge-kelvin-prayitno/assets/129742660/9073c7e6-66e5-4e75-9eeb-e4d5599d0d8b">
+<img width="775" alt="Screen Shot 2024-02-23 at 19 45 30" src="https://github.com/kelvin-learning-ecommerce/flutter-magnus-project-challenge-kelvin-prayitno/assets/129742660/4a62ad6f-902c-4081-b820-55708067459a">
+<img width="775" alt="Screen Shot 2024-02-23 at 19 45 46" src="https://github.com/kelvin-learning-ecommerce/flutter-magnus-project-challenge-kelvin-prayitno/assets/129742660/8b928d06-5ee5-458d-8ac9-bfce244846c2">
+<img width="775" alt="Screen Shot 2024-02-23 at 19 45 59" src="https://github.com/kelvin-learning-ecommerce/flutter-magnus-project-challenge-kelvin-prayitno/assets/129742660/6ed9e3e5-6497-4487-b2e7-e0597215b64f">
+
