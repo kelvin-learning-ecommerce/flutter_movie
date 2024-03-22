@@ -1,4 +1,4 @@
-# Magnus Project Challenge by Kelvin Prayitno
+# Movie Project Challenge by Kelvin Prayitno
 
 ## Getting Started
 
