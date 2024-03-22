@@ -95,37 +95,37 @@ Production flavor (App Archive):
 Here is the core folder structure which flutter provides.
 
 flutter-app/
-|- android
-|- build
-|- ios
-|- lib
-|- test
+* android
+* build
+* ios
+* lib
+* test
 
 Here is the folder structure we have been using in this project
 
 lib/
-|- config/
-|- data/
-|- domain/
-|- features/
-|- generated/
-|- l10n/
-|- utils/
-|- init_app.dart
-|- main.dart
-|- main_dev.dart
-|- main_prod.dart
+* config/
+* data/
+* domain/
+* features/
+* generated/
+* l10n/
+* utils/
+* init_app.dart
+* main.dart
+* main_dev.dart
+* main_prod.dart
 
 Now, lets dive into the lib folder which has the main code for the application.
 
-1- config - Contain global config.
-2- data - Contains data layer repository.
-3- domain - Contain models & domain layer repository.
-4- features — Contain ui, state, event, bloc for UI layer.
-5- generated — Contain generated localization.
-6- l10n — Contain localization.
-7- utils — Contains helper class.
-8- main.dart, init_app.dart, main_dev.dart, main_prod.dart - Setup env config.
+  * 1- config - Contain global config.
+  * 2- data - Contains data layer repository.
+  * 3- domain - Contain models & domain layer repository.
+  * 4- features — Contain ui, state, event, bloc for UI layer.
+  * 5- generated — Contain generated localization.
+  * 6- l10n — Contain localization.
+  * 7- utils — Contains helper class.
+  * 8- main.dart, init_app.dart, main_dev.dart, main_prod.dart - Setup env config.
 
 ### Routes
 
