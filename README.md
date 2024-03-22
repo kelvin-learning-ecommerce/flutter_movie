@@ -11,7 +11,7 @@ flutter used for develop is v3.10.0
 To generate key (only needed to release to Play Store):
 
     cd android/app/
-    keytool -genkey -alias 99groupAlias -keyalg RSA -keystore keystore.jks -dname "CN=Magnus Coding Challenge, OU=Magnus Coding Challenge, O=Magnus, L=Jakarta, S=Jakarta, C=ID" -storepass keystorePass -keypass keystorePass -deststoretype pkcs12 -keysize 4096 -validity 20000
+    keytool -genkey -alias movieAlias -keyalg RSA -keystore keystore.jks -dname "CN=Movie Flutter, OU=Movie Flutter, O=Magnus, L=Jakarta, S=Jakarta, C=ID" -storepass keystorePass -keypass keystorePass -deststoretype pkcs12 -keysize 4096 -validity 20000
 
 create `key.properties` in the android root path:
 
