@@ -88,7 +88,6 @@ Production flavor (App Archive):
 
 * [Dio](https://github.com/flutterchina/dio)
 * [Bloc](https://pub.dev/packages/flutter_bloc)
-* [Encryption](https://github.com/xxtea/xxtea-dart)
 * [Json Serialization](https://github.com/dart-lang/json_serializable)
 * [Dependency Injection](https://github.com/fluttercommunity/get_it)
 
@@ -106,11 +105,11 @@ Here is the folder structure we have been using in this project
 
 lib/
 |- config/
-|- DI/
+|- data/
+|- domain/
+|- features/
 |- generated/
-|- li0n/
-|- module/
-|- network/
+|- l10n/
 |- utils/
 |- init_app.dart
 |- main.dart
@@ -119,12 +118,12 @@ lib/
 
 Now, lets dive into the lib folder which has the main code for the application.
 
-1- config - Contain env data, navigator & routes config, provider list for bloc classes, url const.
-2- DI - Contains dependency config.
-3- generated - Contain generated localization.
-4- li0n — Contain localized wording.
-5- module — Contains main module (view, event, state, bloc, model).
-6- network — Contain Networking config.
+1- config - Contain global config.
+2- data - Contains data layer repository.
+3- domain - Contain models & domain layer repository.
+4- features — Contain ui, state, event, bloc for UI layer.
+5- generated — Contain generated localization.
+6- l10n — Contain localization.
 7- utils — Contains helper class.
 8- main.dart, init_app.dart, main_dev.dart, main_prod.dart - Setup env config.
 
@@ -133,16 +132,3 @@ Now, lets dive into the lib folder which has the main code for the application.
     Navigator.pushNamed({context}, {routes-name}, arguments: {arguments model})
 
 ### Flutter test code coverage screenshot
-
-* All Test Files Success
- <img width="1384" alt="Screen Shot 2024-02-23 at 19 47 53" src="https://github.com/kelvin-learning-ecommerce/flutter-magnus-project-challenge-kelvin-prayitno/assets/129742660/1b987a3d-7ead-4a15-ae6b-3fa497fc3d60">
-
-
-* Code Coverage by Percentage
-
-<img width="775" alt="Screen Shot 2024-02-23 at 19 45 12" src="https://github.com/kelvin-learning-ecommerce/flutter-magnus-project-challenge-kelvin-prayitno/assets/129742660/a06859b1-bbb7-4dd2-9aa1-8c4896fee10c">
-<img width="775" alt="Screen Shot 2024-02-23 at 19 45 25" src="https://github.com/kelvin-learning-ecommerce/flutter-magnus-project-challenge-kelvin-prayitno/assets/129742660/9073c7e6-66e5-4e75-9eeb-e4d5599d0d8b">
-<img width="775" alt="Screen Shot 2024-02-23 at 19 45 30" src="https://github.com/kelvin-learning-ecommerce/flutter-magnus-project-challenge-kelvin-prayitno/assets/129742660/4a62ad6f-902c-4081-b820-55708067459a">
-<img width="775" alt="Screen Shot 2024-02-23 at 19 45 46" src="https://github.com/kelvin-learning-ecommerce/flutter-magnus-project-challenge-kelvin-prayitno/assets/129742660/8b928d06-5ee5-458d-8ac9-bfce244846c2">
-<img width="775" alt="Screen Shot 2024-02-23 at 19 45 59" src="https://github.com/kelvin-learning-ecommerce/flutter-magnus-project-challenge-kelvin-prayitno/assets/129742660/6ed9e3e5-6497-4487-b2e7-e0597215b64f">
-
