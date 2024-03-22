@@ -1,6 +1,6 @@
 import 'package:injectable/injectable.dart';
 
-import '../../domain/models/response/news_response.dart';
+import '../../domain/models/response/movie_response.dart';
 import '../../domain/repositories/api_repository.dart';
 import 'base/api_service.dart';
 
@@ -11,8 +11,14 @@ class ApiRepositoryImpl implements ApiRepository {
   final ApiService baseService;
 
   @override
-  Future<NewsResponse> fetchNews({String? q, required int page}) async {
-    var res = await baseService.fetchNews(url: "everything", q: q ?? "", page: page);
-    return NewsResponse.fromJson(res);
+  Future<MovieResponse> fetchMovie({required String q}) async {
+    var res = await baseService.fetchMovie(q: q);
+    return MovieResponse.fromJson(res);
+  }
+
+  @override
+  Future<MovieResponse> fetchMovieDetail({required int id}) async {
+    var res = await baseService.fetchMovie(id: id);
+    return MovieResponse.fromJson(res);
   }
 }

@@ -1,18 +1,7 @@
 {
-  "login_title": "Login",
-  "register_label": "Register",
-  "news_title": "News",
+  "movie_title": "Movie",
   "home_title": "Home",
-  "profile_tab_title": "Profile",
+  "cinema_tab_title": "Cinema",
   "image_unavailable": "Image Not Available",
-  "game_detail_unavailable": "Game data Not Available",
-  "username_label": "Username",
-  "password_label": "Password",
-  "name_label": "Name",
-  "phoneno_label": "Phone No",
-  "empty_label": "Empty",
-  "register_success_label": "Register Success",
-  "user_not_found_error": "User not found",
-  "check_login_data_error": "Please check your login data",
-  "user_not_available_error": "Username unavailable"
+  "empty_label": "Empty"
 }

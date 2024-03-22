@@ -50,31 +50,11 @@ class S {
     return Localizations.of<S>(context, S);
   }
 
-  /// `Login`
-  String get login_title {
+  /// `Movie`
+  String get movie_title {
     return Intl.message(
-      'Login',
-      name: 'login_title',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Register`
-  String get register_label {
-    return Intl.message(
-      'Register',
-      name: 'register_label',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `News`
-  String get news_title {
-    return Intl.message(
-      'News',
-      name: 'news_title',
+      'Movie',
+      name: 'movie_title',
       desc: '',
       args: [],
     );
@@ -90,11 +70,11 @@ class S {
     );
   }
 
-  /// `Profile`
-  String get profile_tab_title {
+  /// `Cinema`
+  String get cinema_tab_title {
     return Intl.message(
-      'Profile',
-      name: 'profile_tab_title',
+      'Cinema',
+      name: 'cinema_tab_title',
       desc: '',
       args: [],
     );
@@ -110,101 +90,11 @@ class S {
     );
   }
 
-  /// `Game data Not Available`
-  String get game_detail_unavailable {
-    return Intl.message(
-      'Game data Not Available',
-      name: 'game_detail_unavailable',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Username`
-  String get username_label {
-    return Intl.message(
-      'Username',
-      name: 'username_label',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Password`
-  String get password_label {
-    return Intl.message(
-      'Password',
-      name: 'password_label',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Name`
-  String get name_label {
-    return Intl.message(
-      'Name',
-      name: 'name_label',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Phone No`
-  String get phoneno_label {
-    return Intl.message(
-      'Phone No',
-      name: 'phoneno_label',
-      desc: '',
-      args: [],
-    );
-  }
-
   /// `Empty`
   String get empty_label {
     return Intl.message(
       'Empty',
       name: 'empty_label',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Register Success`
-  String get register_success_label {
-    return Intl.message(
-      'Register Success',
-      name: 'register_success_label',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `User not found`
-  String get user_not_found_error {
-    return Intl.message(
-      'User not found',
-      name: 'user_not_found_error',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Please check your login data`
-  String get check_login_data_error {
-    return Intl.message(
-      'Please check your login data',
-      name: 'check_login_data_error',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Username unavailable`
-  String get user_not_available_error {
-    return Intl.message(
-      'Username unavailable',
-      name: 'user_not_available_error',
       desc: '',
       args: [],
     );

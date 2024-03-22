@@ -22,27 +22,11 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
-        "check_login_data_error": MessageLookupByLibrary.simpleMessage(
-            "Please check your login data"),
+        "cinema_tab_title": MessageLookupByLibrary.simpleMessage("Cinema"),
         "empty_label": MessageLookupByLibrary.simpleMessage("Empty"),
-        "game_detail_unavailable":
-            MessageLookupByLibrary.simpleMessage("Game data Not Available"),
         "home_title": MessageLookupByLibrary.simpleMessage("Home"),
         "image_unavailable":
             MessageLookupByLibrary.simpleMessage("Image Not Available"),
-        "login_title": MessageLookupByLibrary.simpleMessage("Login"),
-        "name_label": MessageLookupByLibrary.simpleMessage("Name"),
-        "news_title": MessageLookupByLibrary.simpleMessage("News"),
-        "password_label": MessageLookupByLibrary.simpleMessage("Password"),
-        "phoneno_label": MessageLookupByLibrary.simpleMessage("Phone No"),
-        "profile_tab_title": MessageLookupByLibrary.simpleMessage("Profile"),
-        "register_label": MessageLookupByLibrary.simpleMessage("Register"),
-        "register_success_label":
-            MessageLookupByLibrary.simpleMessage("Register Success"),
-        "user_not_available_error":
-            MessageLookupByLibrary.simpleMessage("Username unavailable"),
-        "user_not_found_error":
-            MessageLookupByLibrary.simpleMessage("User not found"),
-        "username_label": MessageLookupByLibrary.simpleMessage("Username")
+        "movie_title": MessageLookupByLibrary.simpleMessage("Movie")
       };
 }

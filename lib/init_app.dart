@@ -8,9 +8,9 @@ import 'package:magnus_flutter_kelvin_prayitno/utils/resources/env.dart';
 import 'config/DI/di_locator.dart';
 import 'config/router/navigation_config.dart';
 import 'config/router/routes.dart';
-import 'modules/locale/bloc/locale_bloc.dart';
-import 'modules/locale/states/locale_state.dart';
-import 'modules/splashscreen/ui/splash_view.dart';
+import 'features/locale/bloc/locale_bloc.dart';
+import 'features/locale/states/locale_state.dart';
+import 'features/splashscreen/ui/splash_view.dart';
 import 'utils/constants/provider_list.dart';
 import 'generated/l10n.dart';
 

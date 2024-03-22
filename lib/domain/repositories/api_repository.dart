@@ -1,5 +1,5 @@
-import '../models/response/news_response.dart';
+import '../models/response/movie_response.dart';
 
 abstract class ApiRepository {
-  Future<NewsResponse> fetchNews({String q, required int page});
+  Future<MovieResponse> fetchMovie({required String q});
 }

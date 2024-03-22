@@ -5,7 +5,7 @@ import '../../../utils/resources/env.dart';
 import '../../../config/network/app_interceptor.dart';
 
 abstract class ApiService {
-  Future<dynamic> fetchNews({String? url, String? q, required int page});
+  Future<dynamic> fetchMovie({String? q, int? id});
 }
 
 @Injectable(as: ApiService)
@@ -19,13 +19,10 @@ class ApiServiceImpl implements ApiService {
   }
 
   @override
-  Future fetchNews({String? url, String? q, required int page}) async {
+  Future fetchMovie({String? q, int? id}) async {
     try {
-      Response<dynamic>? response = await _get(url ?? "", queryParameters: {
+      Response<dynamic>? response = await _get("films/${id == null ? "" : "$id/"}", queryParameters: {
         "q": q,
-        "apikey": "92a2a1bb14fa45bf813474bf76f49355",
-        "page": page,
-        "pageSize": 10,
       });
 
       return response?.data;

@@ -49,7 +49,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.magnus.kelvin"
+        applicationId "com.movie.kelvin"
         minSdkVersion 23
         targetSdkVersion 34
         versionCode flutterVersionCode.toInteger()
@@ -73,13 +73,13 @@ android {
             applicationIdSuffix ".dev"
             versionNameSuffix ".dev"
             manifestPlaceholders = [
-                    applicationName: 'DEV Flutter Magnus Challenge'
+                    applicationName: 'DEV Movie App Challenge'
             ]
         }
         production {
             dimension "challenge"
             manifestPlaceholders = [
-                    applicationName: 'Flutter Magnus Challenge'
+                    applicationName: 'Movie App Challenge'
             ]
         }
 

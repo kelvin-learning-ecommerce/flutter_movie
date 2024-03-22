@@ -26,18 +26,18 @@ class Env {
   }
 
   static final EnvData _dev = EnvData(
-    title: "Flutter Coding Challenge dev",
+    title: "DEV Movie Challenge",
     apiUrl: devBaseUrl,
-    androidPackageName: "com.magnus.kelvin.dev",
-    iosBundleId: "com.magnus.kelvin.dev",
+    androidPackageName: "com.movie.kelvin.dev",
+    iosBundleId: "com.movie.kelvin.dev",
     iosAppStoreId: "",
   );
 
   static final EnvData _prod = EnvData(
-    title: "Flutter Coding Challenge",
+    title: "Movie Challenge",
     apiUrl: prodBaseUrl,
-    androidPackageName: "com.magnus.kelvin",
-    iosBundleId: "com.magnus.kelvin",
+    androidPackageName: "com.movie.kelvin",
+    iosBundleId: "com.movie.kelvin",
     iosAppStoreId: "",
   );
 }

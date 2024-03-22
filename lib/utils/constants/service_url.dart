@@ -1,2 +1,2 @@
-const devBaseUrl = 'https://newsapi.org/v2/';
-const prodBaseUrl = 'https://newsapi.org/v2/';
+const devBaseUrl = 'https://swapi.dev/api/';
+const prodBaseUrl = 'https://swapi.dev/api/';

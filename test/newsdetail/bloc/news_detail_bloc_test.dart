@@ -1,19 +1,19 @@
 
 import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:magnus_flutter_kelvin_prayitno/modules/newsdetail/bloc/news_detail_bloc.dart';
-import 'package:magnus_flutter_kelvin_prayitno/modules/newsdetail/events/news_detail_event.dart';
-import 'package:magnus_flutter_kelvin_prayitno/modules/newsdetail/states/news_detail_state.dart';
+import 'package:magnus_flutter_kelvin_prayitno/features/newsdetail/bloc/movie_detail_bloc.dart';
+import 'package:magnus_flutter_kelvin_prayitno/features/newsdetail/events/movie_detail_event.dart';
+import 'package:magnus_flutter_kelvin_prayitno/features/newsdetail/states/movie_detail_state.dart';
 
 void main() {
-  late NewsDetailBloc newsDetailBloc;
+  late MovieDetailBloc newsDetailBloc;
 
   setUp(() async {
-    newsDetailBloc = NewsDetailBloc();
+    newsDetailBloc = MovieDetailBloc();
   });
 
-  blocTest<NewsDetailBloc, NewsDetailState>("Test Register Bloc Tab Change Success State",
+  blocTest<MovieDetailBloc, MovieDetailState>("Test Register Bloc Tab Change Success State",
       build: () => newsDetailBloc,
-      act: (bloc) => newsDetailBloc.add(const NewsDetailTabEvent(0)),
-      expect: () => [NewsDetailStateInit(), NewsDetailStateTabChange(0)]);
+      act: (bloc) => newsDetailBloc.add(const MovieDetailTabEvent(0)),
+      expect: () => [MovieDetailStateInit(), MovieDetailStateTabChange(0)]);
 }

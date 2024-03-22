@@ -40,6 +40,7 @@ dependencies:
   flutter_secure_storage: ^9.0.0
   floor: ^1.4.2
   sqflite: ^2.3.2
+  url_launcher: ^6.1.14
 
 dev_dependencies:
   flutter_test:
@@ -69,6 +70,6 @@ flutter_intl:
   enabled: true
 
 flutter_icons:
-  image_path: "assets/images/ic_magnus.jpeg"
+  image_path: "assets/images/ic_swapi_movie.png"
   android: true
   ios: true

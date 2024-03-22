@@ -27,7 +27,7 @@ to generate localization, please use
 This project uses `inject` library and auto serialize models that works with code generation,
 execute the following command to generate files:
 
-    flutter packages pub run build_runner build --delete-conflicting-outputs
+    flutter packages pub run build_runner watch --delete-conflicting-outputs
 
 to update app icon
 
