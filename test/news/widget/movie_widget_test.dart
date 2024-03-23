@@ -81,7 +81,7 @@ void main() {
       );
 
       // find
-      var testedWidget = MovieContentComponent();
+      var testedWidget = const MovieContentComponent();
       final refreshProgressWidget = find.byType(RefreshProgressIndicator);
 
       await tester.pumpWidget(parentWidget(testedWidget, mockMovieBloc));
@@ -96,7 +96,7 @@ void main() {
       );
 
       // find
-      var testedWidget = MovieContentComponent();
+      var testedWidget = const MovieContentComponent();
       final gridViewKeyWidget = find.byKey(const Key("News Content Component GridView"));
 
       await tester.pumpWidget(parentWidget(testedWidget, mockMovieBloc));
@@ -135,7 +135,7 @@ void main() {
       );
 
       // find
-      var testedWidget = MovieContentComponent();
+      var testedWidget = const MovieContentComponent();
       final listViewKeyWidget = find.byKey(const Key("News Content Component ListView"));
 
       await tester.pumpWidget(parentWidget(testedWidget, mockMovieBloc));

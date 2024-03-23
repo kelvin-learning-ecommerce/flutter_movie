@@ -4,6 +4,8 @@ import 'package:magnus_flutter_kelvin_prayitno/utils/extensions/routes_ext.dart'
 import 'package:touchable_opacity/touchable_opacity.dart';
 
 import '../../../../domain/models/response/movie_response.dart';
+import '../../../../utils/local_notification/notification_service.dart';
+import '../../../../utils/snakebar/snakebar_util.dart';
 import '../../../widgets/cached_network_image_utils.dart';
 
 Widget listviewLayout(List<MovieResultResponse> result) {
@@ -29,7 +31,7 @@ Widget listviewLayout(List<MovieResultResponse> result) {
 Widget gridviewLayout(List<MovieResultResponse> result) {
   return GridView.builder(
     key: const Key("Movie Content Component GridView"),
-    gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2, childAspectRatio: 0.75),
+    gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2, childAspectRatio: 0.65),
     itemBuilder: (context, index) {
       var item = result[index];
       return movieItem(
@@ -51,32 +53,56 @@ Widget movieItem(BuildContext context, MovieResultResponse item, int index, {Key
         margin: REdgeInsets.all(10),
         padding: REdgeInsets.only(top: 10),
         decoration: BoxDecoration(border: Border.all(color: Colors.blueAccent)),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+        child: Stack(
           children: [
-            Hero(
-              tag: item.title ?? "",
-              child: AppCachedNetworkImage(
-                height: 125.h,
-                width: 100.w,
-                fit: BoxFit.fill,
-                url: 'https://starwars-visualguide.com/assets/img/films/$index.jpg',
+            Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Hero(
+                  tag: item.title ?? "",
+                  child: AppCachedNetworkImage(
+                    height: 125.h,
+                    width: 100.w,
+                    fit: BoxFit.fill,
+                    url: 'https://starwars-visualguide.com/assets/img/films/$index.jpg',
+                  ),
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+                Text(
+                  "Name: ${item.title}",
+                  textAlign: TextAlign.center,
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+                Text('Released date: ${item.releaseDate}', textAlign: TextAlign.center),
+                const SizedBox(
+                  height: 10,
+                ),
+              ],
+            ),
+            Align(
+              alignment: Alignment.topRight,
+              child: Container(
+                margin: REdgeInsets.symmetric(horizontal: 10.w),
+                child: TouchableOpacity(
+                  child: const Icon(Icons.notification_add, color: Colors.redAccent),
+                  onTap: () async {
+                    showSnackBar(context, "We'll notify you in the next 5 minutes");
+
+                    await notificationService.showScheduledLocalNotification(
+                      id: index,
+                      title: "${item.title}",
+                      body: "Directed by ${item.director}",
+                      payload: "${item.episodeId}",
+                      seconds: 300,
+                    );
+                  },
+                ),
               ),
-            ),
-            const SizedBox(
-              height: 10,
-            ),
-            Text(
-              "Name: ${item.title}",
-              textAlign: TextAlign.center,
-            ),
-            const SizedBox(
-              height: 10,
-            ),
-            Text('Released date: ${item.releaseDate}', textAlign: TextAlign.center),
-            const SizedBox(
-              height: 10,
-            ),
+            )
           ],
         ),
       ),

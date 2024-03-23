@@ -15,10 +15,4 @@ class ApiRepositoryImpl implements ApiRepository {
     var res = await baseService.fetchMovie(q: q);
     return MovieResponse.fromJson(res);
   }
-
-  @override
-  Future<MovieResponse> fetchMovieDetail({required int id}) async {
-    var res = await baseService.fetchMovie(id: id);
-    return MovieResponse.fromJson(res);
-  }
 }

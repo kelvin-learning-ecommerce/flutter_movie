@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:magnus_flutter_kelvin_prayitno/utils/local_notification/notification_service.dart';
 import 'package:magnus_flutter_kelvin_prayitno/utils/resources/env.dart';
 
 import 'config/DI/di_locator.dart';
@@ -19,6 +20,8 @@ void initApp(EnvType env) async {
   Env.init(env);
 
   await configureDependencies();
+
+  await notificationService.initializePlatformNotifications();
 
   runApp(const MyApp());
 }

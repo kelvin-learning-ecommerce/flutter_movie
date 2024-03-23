@@ -47,7 +47,6 @@ class _AppCachedNetworkImageState extends State<AppCachedNetworkImage> {
             )),
       ),
       errorWidget: (context, url, error) {
-        print("error image Url ${widget.url}");
         return Text(S.of(context).image_unavailable);
       },
       placeholder: (context, url) => const Center(

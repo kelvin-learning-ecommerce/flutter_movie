@@ -32,7 +32,7 @@ class _SplashScreenState extends State<SplashScreen> {
           }
         },
         child: Center(
-          child: Image.asset(magnusIc),
+          child: Image.asset(movieIc),
         ),
       ),
     );
