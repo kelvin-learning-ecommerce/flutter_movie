@@ -7,7 +7,7 @@ import 'package:magnus_flutter_kelvin_prayitno/domain/repositories/api_repositor
 import 'package:mocktail/mocktail.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-import '../raw/news_api_raw.dart';
+import '../raw/movie_api_raw.dart';
 
 class MockedApiRepository extends Mock implements ApiRepository {}
 
@@ -22,14 +22,14 @@ void main() {
     locator.registerFactory<MockedApiRepository>(() => mockedApiRepository);
   });
 
-  MovieResponse newModel = MovieResponse.fromJson(jsonDecode(newsRawResponse));
+  MovieResponse movieModel = MovieResponse.fromJson(jsonDecode(movieRawResponse));
 
   test('Game List Test', () async {
-    when(() => mockedApiRepository.fetchMovie(q: "")).thenAnswer((_) async => Future.value(newModel));
+    when(() => mockedApiRepository.fetchMovie(q: "")).thenAnswer((_) async => Future.value(movieModel));
 
     expect(
       await mockedApiRepository.fetchMovie(q: ""),
-      newModel,
+      movieModel,
     );
   });
 }

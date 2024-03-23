@@ -35,7 +35,7 @@ import 'package:magnus_flutter_kelvin_prayitno/domain/repositories/storage_repos
     as _i11;
 import 'package:magnus_flutter_kelvin_prayitno/features/movie/bloc/movie_bloc.dart'
     as _i17;
-import 'package:magnus_flutter_kelvin_prayitno/features/newsdetail/bloc/movie_detail_bloc.dart'
+import 'package:magnus_flutter_kelvin_prayitno/features/moviedetail/bloc/movie_detail_bloc.dart'
     as _i8;
 import 'package:magnus_flutter_kelvin_prayitno/features/splashscreen/bloc/splash_screen_bloc.dart'
     as _i14;

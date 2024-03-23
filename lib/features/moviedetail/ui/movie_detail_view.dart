@@ -68,7 +68,7 @@ class _GameDetailBodyState extends State<GameDetailBody> with TickerProviderStat
                 background: Hero(
                   tag: widget.data?.title ?? "",
                   child: AppCachedNetworkImage(
-                    url: 'https://starwars-visualguide.com/assets/img/films/${widget.data?.episodeId}.jpg',
+                    url: 'https://starwars-visualguide.com/assets/img/films/${widget.data?.index}.jpg',
                   ),
                 )),
           ),

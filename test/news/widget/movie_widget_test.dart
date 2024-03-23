@@ -16,29 +16,30 @@ import 'package:magnus_flutter_kelvin_prayitno/features/movie/states/movie_state
 import 'package:magnus_flutter_kelvin_prayitno/features/movie/ui/components/movie_content_component.dart';
 import 'package:magnus_flutter_kelvin_prayitno/features/movie/ui/components/movie_view_ext.dart';
 import 'package:magnus_flutter_kelvin_prayitno/features/movie/ui/movie_view.dart';
-import 'package:magnus_flutter_kelvin_prayitno/features/newsdetail/bloc/movie_detail_bloc.dart';
-import 'package:magnus_flutter_kelvin_prayitno/features/newsdetail/events/movie_detail_event.dart';
-import 'package:magnus_flutter_kelvin_prayitno/features/newsdetail/states/movie_detail_state.dart';
+import 'package:magnus_flutter_kelvin_prayitno/features/moviedetail/bloc/movie_detail_bloc.dart';
+import 'package:magnus_flutter_kelvin_prayitno/features/moviedetail/events/movie_detail_event.dart';
+import 'package:magnus_flutter_kelvin_prayitno/features/moviedetail/states/movie_detail_state.dart';
 import 'package:magnus_flutter_kelvin_prayitno/generated/l10n.dart';
+import 'package:magnus_flutter_kelvin_prayitno/utils/constants/key_label.dart';
 import 'package:mocktail/mocktail.dart';
 
 class MockMovieBloc extends MockBloc<MovieEvent, MovieState> implements MovieBloc {}
 
-class MockNewsDetailBloc extends MockBloc<MovieDetailEvent, MovieDetailState> implements MovieDetailBloc {}
+class MockMovieDetailBloc extends MockBloc<MovieDetailEvent, MovieDetailState> implements MovieDetailBloc {}
 
 class MockLocaleBloc extends MockBloc<LocaleEvent, LocaleState> implements LocaleBloc {}
 
 void main() {
   late MockMovieBloc mockMovieBloc;
-  late MockNewsDetailBloc mockNewsDetailBloc;
+  late MockMovieDetailBloc mockMovieDetailBloc;
   late MockLocaleBloc mockLocaleBloc;
 
   late dynamic providerList;
 
-  group("Login View Widget Test", () {
+  group("Widget Test", () {
     setUpAll(() async {
       mockMovieBloc = MockMovieBloc();
-      mockNewsDetailBloc = MockNewsDetailBloc();
+      mockMovieDetailBloc = MockMovieDetailBloc();
       mockLocaleBloc = MockLocaleBloc();
 
       providerList = [
@@ -46,7 +47,7 @@ void main() {
           create: (context) => mockMovieBloc,
         ),
         BlocProvider<MovieDetailBloc>(
-          create: (context) => mockNewsDetailBloc,
+          create: (context) => mockMovieDetailBloc,
         ),
         BlocProvider<LocaleBloc>(
           create: (context) => mockLocaleBloc,
@@ -57,7 +58,7 @@ void main() {
       TestWidgetsFlutterBinding.ensureInitialized();
     });
 
-    testWidgets('News View Widget Test - Parent Widget', (WidgetTester tester) async {
+    testWidgets('Movie View Widget Test - Parent Widget', (WidgetTester tester) async {
       when(() => mockLocaleBloc.state).thenReturn(
         LocaleStateChangeLocale(), // the desired state
       );
@@ -68,13 +69,13 @@ void main() {
 
       // find
       var testedWidget = const MovieView();
-      final inkWellWidget = find.byKey(const Key("News-Parent Column"));
+      final inkWellWidget = find.byKey(movieParent);
 
       await tester.pumpWidget(multiBlocParentWidget(testedWidget, providerList));
       expect(inkWellWidget, findsOneWidget);
     });
 
-    testWidgets('News Page Content Loading State', (WidgetTester tester) async {
+    testWidgets('Movie Page Content Loading State', (WidgetTester tester) async {
       // arrange
       when(() => mockMovieBloc.state).thenReturn(
         MovieStateLoading(), // the desired state
@@ -89,7 +90,7 @@ void main() {
       expect(refreshProgressWidget, findsOneWidget);
     });
 
-    testWidgets('News Page Content Success State Grid View Layout', (WidgetTester tester) async {
+    testWidgets('Movie Page Content Success State Grid View Layout', (WidgetTester tester) async {
       // arrange
       when(() => mockMovieBloc.state).thenReturn(
         MovieStateSuccess(result: const [], listLayout: ListLayout.gridview), // the desired state
@@ -97,18 +98,18 @@ void main() {
 
       // find
       var testedWidget = const MovieContentComponent();
-      final gridViewKeyWidget = find.byKey(const Key("News Content Component GridView"));
+      final gridViewKeyWidget = find.byKey(movieContentGridViewParent);
 
       await tester.pumpWidget(parentWidget(testedWidget, mockMovieBloc));
 
       expect(gridViewKeyWidget, findsOneWidget);
     });
 
-    testWidgets('News Page Content Success State Grid View Layout - Empty List', (WidgetTester tester) async {
+    testWidgets('Movie Page Content Success State Grid View Layout - Empty List', (WidgetTester tester) async {
       // find
       var testedWidget = gridviewLayout([]);
-      final gridViewKeyWidget = find.byKey(const Key("News Content Component GridView"));
-      final inkWellWidget = find.byKey(const Key("News Content GridView Component InkWell"));
+      final gridViewKeyWidget = find.byKey(movieContentGridViewParent);
+      final inkWellWidget = find.byKey(const Key("$movieContentGridViewInkWellParentKeyLabel - 0"));
 
       await tester.pumpWidget(parentWidget(testedWidget, mockMovieBloc));
 
@@ -116,11 +117,11 @@ void main() {
       expect(inkWellWidget, findsNothing);
     });
 
-    testWidgets('News Page Content Success State Grid View Layout - Non-empty List', (WidgetTester tester) async {
+    testWidgets('Movie Page Content Success State Grid View Layout - Non-empty List', (WidgetTester tester) async {
       // find
-      var testedWidget = gridviewLayout([const MovieResultResponse(), const MovieResultResponse()]);
-      final gridViewKeyWidget = find.byKey(const Key("News Content Component GridView"));
-      final inkWellWidget = find.byKey(const Key("News Content GridView Component InkWell - 0"));
+      var testedWidget = gridviewLayout([MovieResultResponse(), MovieResultResponse()]);
+      final gridViewKeyWidget = find.byKey(movieContentGridViewParent);
+      final inkWellWidget = find.byKey(const Key("$movieContentGridViewInkWellParentKeyLabel - 0"));
 
       await tester.pumpWidget(parentWidget(testedWidget, mockMovieBloc));
 
@@ -128,7 +129,7 @@ void main() {
       expect(inkWellWidget, findsOneWidget);
     });
 
-    testWidgets('News Page Content Success State List View Layout', (WidgetTester tester) async {
+    testWidgets('Movie Page Content Success State List View Layout', (WidgetTester tester) async {
       // arrange
       when(() => mockMovieBloc.state).thenReturn(
         MovieStateSuccess(result: const [], listLayout: ListLayout.listview), // the desired state
@@ -136,18 +137,18 @@ void main() {
 
       // find
       var testedWidget = const MovieContentComponent();
-      final listViewKeyWidget = find.byKey(const Key("News Content Component ListView"));
+      final listViewKeyWidget = find.byKey(movieContentListViewParentKey);
 
       await tester.pumpWidget(parentWidget(testedWidget, mockMovieBloc));
 
       expect(listViewKeyWidget, findsOneWidget);
     });
 
-    testWidgets('News Page Content Success State List View Layout - Empty List', (WidgetTester tester) async {
+    testWidgets('Movie Page Content Success State List View Layout - Empty List', (WidgetTester tester) async {
       // find
       var testedWidget = listviewLayout([]);
-      final listViewKeyWidget = find.byKey(const Key("News Content Component ListView"));
-      final inkWellWidget = find.byKey(const Key("News Content Component InkWell"));
+      final listViewKeyWidget = find.byKey(movieContentListViewParentKey);
+      final inkWellWidget = find.byKey(const Key("$movieContentListViewInkwellParentKey - 0"));
 
       await tester.pumpWidget(parentWidget(testedWidget, mockMovieBloc));
 
@@ -155,11 +156,11 @@ void main() {
       expect(inkWellWidget, findsNothing);
     });
 
-    testWidgets('News Page Content Success State List View Layout - Non-empty List', (WidgetTester tester) async {
+    testWidgets('Movie Page Content Success State List View Layout - Non-empty List', (WidgetTester tester) async {
       // find
-      var testedWidget = listviewLayout([const MovieResultResponse(), const MovieResultResponse()]);
-      final listViewKeyWidget = find.byKey(const Key("News Content Component ListView"));
-      final inkWellWidget = find.byKey(const Key("News Content ListView Component InkWell - 0"));
+      var testedWidget = listviewLayout([MovieResultResponse(), MovieResultResponse()]);
+      final listViewKeyWidget = find.byKey(movieContentListViewParentKey);
+      final inkWellWidget = find.byKey(const Key("$movieContentListViewInkwellParentKey - 0"));
 
       await tester.pumpWidget(parentWidget(testedWidget, mockMovieBloc));
 

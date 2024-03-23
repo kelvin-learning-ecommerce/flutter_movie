@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../domain/models/response/movie_response.dart';
 import '../../features/home/ui/home_view.dart';
-import '../../features/newsdetail/ui/movie_detail_view.dart';
+import '../../features/moviedetail/ui/movie_detail_view.dart';
 
 const String homeRoutes = '/HomeRoutes';
 const String newsDetailRoutes = '/NewsDetailRoutes';

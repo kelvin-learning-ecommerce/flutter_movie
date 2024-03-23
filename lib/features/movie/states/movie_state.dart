@@ -1,6 +1,6 @@
 import 'package:equatable/equatable.dart';
 import 'package:magnus_flutter_kelvin_prayitno/domain/models/response/movie_response.dart';
-import 'package:magnus_flutter_kelvin_prayitno/utils/enum/news_enum.dart';
+import 'package:magnus_flutter_kelvin_prayitno/utils/enum/movie_fetch_enum.dart';
 
 import '../events/movie_event.dart';
 
@@ -15,7 +15,7 @@ class MovieStateInit extends MovieState {}
 class MovieStateLoading extends MovieState {}
 
 class MovieStateError extends MovieState {
-  final NewsError error;
+  final MovieFetchError error;
 
   MovieStateError({required this.error});
 }

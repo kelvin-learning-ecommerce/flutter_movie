@@ -1,3 +1,3 @@
-enum NewsError{
+enum MovieFetchError{
   emptyQuery, noResult, other
 }

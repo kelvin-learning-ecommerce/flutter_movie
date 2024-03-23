@@ -22,7 +22,7 @@ class ApiServiceImpl implements ApiService {
   Future fetchMovie({String? q, int? id}) async {
     try {
       Response<dynamic>? response = await _get("films/${id == null ? "" : "$id/"}", queryParameters: {
-        "q": q,
+        "search": q,
       });
 
       return response?.data;

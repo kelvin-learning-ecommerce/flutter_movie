@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../../utils/constants/key_label.dart';
 import '../../locale/bloc/locale_bloc.dart';
 import '../../locale/events/locale_event.dart';
 import '../../widgets/debouncer.dart';
@@ -47,15 +48,15 @@ class _MovieListScreenState extends State<MovieListScreen> {
   void initState() {
     super.initState();
 
-    movieBloc?.add(const MovieFetchEvent());
     movieBloc?.add(const MovieChangeLayoutEvent());
     localeBloc?.add(const LocaleChangeLangEvent());
+    movieBloc?.add(const MovieFetchEvent());
   }
 
   @override
   Widget build(BuildContext context) {
     return Column(
-      key: const Key("News-Parent Column"),
+      key: movieParent,
       children: [
         SearchTextField(
           controller: searchController,

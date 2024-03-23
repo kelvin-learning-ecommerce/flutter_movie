@@ -48,6 +48,7 @@ MovieResultResponse _$MovieResultResponseFromJson(Map<String, dynamic> json) =>
       created: json['created'] as String?,
       edited: json['edited'] as String?,
       url: json['url'] as String?,
+      index: json['index'] as int?,
     );
 
 Map<String, dynamic> _$MovieResultResponseToJson(
@@ -55,6 +56,7 @@ Map<String, dynamic> _$MovieResultResponseToJson(
     <String, dynamic>{
       'title': instance.title,
       'episode_id': instance.episodeId,
+      'index': instance.index,
       'opening_crawl': instance.openingCrawl,
       'director': instance.director,
       'producer': instance.producer,

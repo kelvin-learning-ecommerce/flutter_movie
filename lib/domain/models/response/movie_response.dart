@@ -25,7 +25,7 @@ class MovieResponse {
 
 @JsonSerializable()
 class MovieResultResponse {
-  const MovieResultResponse(
+  MovieResultResponse(
       {this.title,
       this.episodeId,
       this.openingCrawl,
@@ -39,11 +39,13 @@ class MovieResultResponse {
       this.species,
       this.created,
       this.edited,
-      this.url});
+      this.url,
+      this.index});
 
   final String? title;
   @JsonKey(name: "episode_id")
   final int? episodeId;
+  int? index;
   @JsonKey(name: "opening_crawl")
   final String? openingCrawl;
   final String? director;

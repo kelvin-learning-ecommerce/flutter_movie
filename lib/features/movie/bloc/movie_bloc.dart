@@ -1,6 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
-import 'package:magnus_flutter_kelvin_prayitno/utils/enum/news_enum.dart';
+import 'package:magnus_flutter_kelvin_prayitno/utils/enum/movie_fetch_enum.dart';
 
 import '../../../config/router/navigation_config.dart';
 import '../../../domain/models/response/movie_response.dart';
@@ -27,14 +27,14 @@ class MovieBloc extends Bloc<MovieEvent, MovieState> {
         var response = await apiRepository.fetchMovie(q: q);
 
         if ((response.results ?? []).isEmpty) {
-          emit(MovieStateError(error: NewsError.noResult));
+          emit(MovieStateError(error: MovieFetchError.noResult));
         } else {
           result.addAll(response.results ?? []);
 
           emit(MovieStateSuccess(result: result, listLayout: listLayout));
         }
       } catch (e) {
-        emit(MovieStateError(error: NewsError.other));
+        emit(MovieStateError(error: MovieFetchError.other));
       }
     });
 

@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../utils/enum/news_enum.dart';
+import '../../../../utils/constants/key_label.dart';
+import '../../../../utils/enum/movie_fetch_enum.dart';
 import '../../bloc/movie_bloc.dart';
 import '../../events/movie_event.dart';
 import '../../states/movie_state.dart';
@@ -28,16 +29,16 @@ class MovieContentComponent extends StatelessWidget {
         }
 
         return Container(
-          key: const Key("News Content Component State Not Found"),
+          key: movieContentKeyNotFound,
         );
       },
     );
   }
 
-  String errorMessage(NewsError err) {
-    if (err == NewsError.noResult) {
-      return "No News Found";
-    } else if (err == NewsError.other) {
+  String errorMessage(MovieFetchError err) {
+    if (err == MovieFetchError.noResult) {
+      return "No Movie Found";
+    } else if (err == MovieFetchError.other) {
       return "Please try again";
     } else {
       return "Please input search";
