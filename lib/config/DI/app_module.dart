@@ -3,8 +3,6 @@ import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../data/repositories/base/api_service.dart';
-import '../../utils/constants/floor_db_const.dart';
-import '../floor/floor_database.dart';
 
 @module
 abstract class AppModule {
@@ -13,9 +11,4 @@ abstract class AppModule {
 
   @lazySingleton
   FlutterSecureStorage get secureStorage => const FlutterSecureStorage();
-
-  @preResolve
-  Future<AppDatabase> get floorDB async {
-    return await $FloorAppDatabase.databaseBuilder(floorDbName).build();
-  }
 }

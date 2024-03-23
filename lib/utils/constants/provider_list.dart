@@ -10,5 +10,5 @@ var providerList = [
   BlocProvider<MovieBloc>(create: (_) => MovieBloc(locator())),
   BlocProvider<MovieDetailBloc>(create: (_) => MovieDetailBloc()),
   BlocProvider<LocaleBloc>(create: (_) => LocaleBloc()),
-  BlocProvider<SplashScreenBloc>(create: (_) => SplashScreenBloc(locator(), locator())),
+  BlocProvider<SplashScreenBloc>(create: (_) => SplashScreenBloc(locator())),
 ];

@@ -18,7 +18,15 @@ class _InfoTabState extends State<InfoTab> {
       shrinkWrap: true,
       children: [
         Text(
-          "Story: ${widget.detail?.openingCrawl}",
+          "Director: ${widget.detail?.director}",
+          textAlign: TextAlign.center,
+          style: const TextStyle(fontSize: 20, fontWeight: FontWeight.w700),
+        ),
+        SizedBox(
+          height: 8.h,
+        ),
+        Text(
+          "Summary: ${widget.detail?.openingCrawl}",
           textAlign: TextAlign.center,
         ),
         SizedBox(
