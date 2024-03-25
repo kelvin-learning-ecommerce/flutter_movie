@@ -131,4 +131,6 @@ Now, lets dive into the lib folder which has the main code for the application.
 
     Navigator.pushNamed({context}, {routes-name}, arguments: {arguments model})
 
-### Flutter test code coverage screenshot
+### Flutter local push notification screenshot
+![WhatsApp Image 2024-03-23 at 12 52 40 PM](https://github.com/kelvin-learning-ecommerce/flutter_movie/assets/129742660/122f642f-478d-4464-8fa3-e9b5d5380607)
+
